@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="alert alert-success alert-dismissible text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+{% endwith %}
+    <div class="s1">
+       <img src="{{ url_for('static',filename='images/S1.jpeg') }}" alt="S1" class="s1image">
+        <div class="content1 text-center">
+            <h1 class="pb-3" style="font-size:5vw">Step 2</h1>
+            <h3 class="pb-3" >Student Feedback Analysis</h3>
+            <p>Hi, To continue please provide us with your stream and detailed feedback about your stream</p>
+        </div>
+        <div class="container">
+            <form action="{{ url_for('explore')}}" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <div class="content2"> 
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ form.stream.label(id="streamlabel") }}
+                            </div>
+                        </div>
+                        <div class="row no-gutters">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                {{ form.stream(class='s1stream') }}
+                            </div>
+                            <div class="col-sm-2">
+                            {% for error in form.stream.errors %}
+                                <span style="color: red;">[{{ error }}]</span>
+                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <h3>1.Are/were you able to properly finalize your choice of subject stream before opting for it?</h3> 
+                    {{ form.q1.label(id="o1") }}{{ form.q1(style="list-style:none",id="o2") }}
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                    {{ form.submit(class='btn btn-light',id="fsubmit") }}
+                    </div>
+                </div>
+            </form>
+        </div>   
+    </div>  
+
+{% endblock %}

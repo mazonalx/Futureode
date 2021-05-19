@@ -1,11 +1,14 @@
-.carousel { height: calc(100vh - 230px);top: 0;position: relative;}
+.carousel { height: calc(100vh);top: 0;position: relative;}
 .carousel-inner,.carousel-item { height: 100%;}
 .carousel-item { background-color: #000;}
 .carousel-item img { height: 100%; object-fit: cover; object-position: center;opacity: .6;}
 .carousel-caption {width: 100%;left: 0;}
-.nav-item a:hover{ background-color: rgba(104, 212, 231, 0.13)}
-.navbar {position: absolute;top: 30px;z-index: 10;width: 100%;}
+.nav-item a:hover{ background-color: rgba(245, 249, 250, 0.13)}
+.navbar {position:fixed;width:100%;z-index:10;border-radius:0;background-color:rgb(29, 28, 29);}
 									/*GET STARTED*/
+.navbar-dark .navbar-toggler-icon {
+background-image: url(“data:image/svg+xml;..”);
+}
 .button {
     text-align: center;text-transform: uppercase;cursor: pointer;font-size: 20px;letter-spacing: 4px;
     position: relative;background-color: #25e1e7;border: none;color: #fff;padding: 20px;width: 230px;

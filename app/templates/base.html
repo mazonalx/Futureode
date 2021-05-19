@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Title -->
+    {% if title %}
+        <title>{{ title }}-Futureode</title>
+    {% else %}
+        <title>Futureode Welcome!</title>
+    {% endif %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/f7cfd0881f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('.static',filename='css/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static',filename='css/explore.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static',filename='css/paths.css')}}">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <div class="container-fluid">
+                <a style="font-family:Courgette;font-size:20px;"class="navbar-brand" href="#">Futureode</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link btn ml-2 btn-md " href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn ml-2 btn-md" href="{{ url_for('index') }}#career-updates">News</a>
+                        </li>
+                    {% if session.uname %}
+                        <li class="nav-item pt-2 pl-2 bg-primary rounded text-center" style="color: white;display: inline;">{{ session.uname }}<a class="nav-link btn ml-2 btn-md" style="display:inline" href="/logout">logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link btn ml-2 btn-md" href="/login">login</a></li>
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+    {% block content %}{% endblock content %}
+    <footer class="page-footer bg-dark text-center text-white p-5">
+        <!-- Grid container -->
+        <div class="container-fluid">
+            <div>
+                <img src="{{ url_for('static',filename='images/Logo.png') }}" alt="Logo">
+            </div>
+            <!-- Section: Social media -->
+            <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-linkedin-in"></i
+            ></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                ><i class="fab fa-github"></i
+            ></a>
+            </section>
+            <!-- Section: Social media -->
+
+            <!-- Section: Text -->
+            <section class="mb-4">
+            <p>
+                Helping students asses their skills and knowledge and choose the right career path.
+            </p>
+            </section>
+            <!-- Section: Text -->
+
+            <!-- Section: Links -->
+            <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                    <a href="#!" class="text-white">About Us</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">Contact</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">Privacy Policy</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">Terms & Conditions</a>
+                    </li>
+                </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                    <a href="{{ url_for('index') }}" class="text-white">Home</a>
+                    </li>
+                    <li>
+                    <a href="{{ url_for('explore') }}" class="text-white">Explore</a>
+                    </li>
+                    <li>
+                    <a href="{{ url_for('index') }}#career-updates" class="text-white">News Feeds</a>
+                    </li>
+                </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li>
+                    <a href="#!" class="text-white">ML</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">NLTK</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">Recommender</a>
+                    </li>
+                    <li>
+                    <a href="#!" class="text-white">Big5PersonalityTraits</a>
+                    </li>
+                </ul>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+        </div>
+    <!-- Grid container -->
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid R px-0">
+  <div class="R1">
+    <img src="{{url_for('static',filename='images/result.jpg')}}" alt="Snow" style="width:100%;">
+    <div class="centered">Here you go</div>
+  </div>
+</div> 
+<div class="container-fluid R2">
+  <div class="row justify-content-center">
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 text-center border-right border bg-primary p-3">
+      <h3>Stream</h3>
+        <div id="data">{{session.stream}}</div>
+      <h3>Feedback</h3>
+        <div id="data">{{session.feedback}}</div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-8 col-sm-8 bg-primary p-3 border ">
+        <h3>Grades</h3>
+        <div class="row">
+          <div class="col-10">
+            <h6><span class="badge badge-light mb-1" style="display:inline;">PHYSICS | ACCOUNTANCY | HISTORY</span></h6>
+            <h6><span class="badge badge-light mb-1" style="display:inline;">CHEMISTRY | BUSINESS STUDIES | ECONOMICS</span></h6>
+            <h6><span class="badge badge-light mb-1" style="display:inline;">MATHS | ECONOMICS | SOCIOLOGY</span></h6>
+            <h6><span class="badge badge-light mb-1" style="display:inline;">BIOLOGY | INFORMATION PRACTICES | GEOGRAPHY</span></h6>
+            <h6><span class="badge badge-light mb-1" style="display:inline;">COMPUTER | LEGAL STUDIES | POLITICAL SCIENCE</span></h6>
+            <h6><span class="badge badge-light " style="display:inline;">LANGUAGE</span></h6>
+          </div>
+          <div class="col-2">
+            <div id="data">{{session.sub1}}</div>
+            <div id="data">{{session.sub2}}</div>
+            <div id="data">{{session.sub3}}</div>
+            <div id="data">{{session.sub4}}</div>
+            <div id="data">{{session.sub5}}</div>
+            <div id="data">{{session.sub6}}</div>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 border bg-primary p-3"> 
+        <h3>IQ TEST</h3>
+        <div class="row">
+          <div class="col-6">
+            <ol>
+              {% if session.iq1 == 'A' %}
+              <li><div id="data">{{session.iq1}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq1}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq2 == 'B' %}
+              <li><div id="data">{{session.iq2}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq2}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq3 == 'E' %}
+              <li><div id="data">{{session.iq3}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq3}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq4 == 'B' %}
+              <li><div id="data">{{session.iq4}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq4}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq5 == 'A' %}
+              <li><div id="data">{{session.iq5}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq5}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+            </ol>
+          </div>
+          <div class="col-6">
+            <ol start="6">
+              {% if session.iq6 == 'C' %}
+              <li><div id="data">{{session.iq6}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq6}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq7 == 'B' %}
+              <li><div id="data">{{session.iq7}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq7}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq8 == 'B' %}
+              <li><div id="data">{{session.iq8}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq8}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq9 == 'E' %}
+              <li><div id="data">{{session.iq9}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq9}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+              {% if session.iq10 == '10' %}
+              <li><div id="data">{{session.iq10}}<span><i class="fas fa-check-circle pl-1"></i></span></div></li>
+              {% else %}
+              <li><div id="data">{{session.iq10}}<span><i class="fas fa-times-circle pl-1"></i></span></div></li>
+              {% endif %}
+            </ol>
+          </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-6 col-md-8 col-sm-6 col-6 border bg-primary p-3">
+      <h3>Skills</h3>
+      {{session.skill}}
+    </div>
+    <div class="col-xl-2 col-lg-6 col-md-12 col-sm-12 border bg-primary p-3">
+      <h3>Certification</h3>
+      {{session.certifications}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col border-bottom bg-primary pl-5">
+      <h3>Personality Test</h3>
+      <div class="row justify-content-center">
+        <div class="col col-xl-2 col-md-6 col-sm-12 col-12">
+          <h6 style="display: inline">1</h6>
+          {% for i in session.pq1 %}
+            {% if i == '1' %}
+                <ul>
+                  <li>I enjoy being the center of attention</li>
+                </ul>
+            {% elif i == '2' %}
+                <ul>
+                  <li>I feel comfortable around people.</li>
+                </ul>           
+            {% elif i == '3' %}           
+                <ul>
+                  <li>I take time out for others.</li>
+                </ul>            
+            {% elif i == '4' %}           
+                <ul>
+                  <li>I usually feel others's emotions.</li>
+                </ul>           
+            {% else %}            
+                <ul>
+                  <li>I believe others have good intentions.</li>
+                </ul>           
+            {% endif %}
+          {% endfor %}  
+        </div>
+        <div class="col col-xl-2 col-md-6 col-sm-12 col-12">
+          <h6 style="display: inline">2</h6>
+          {% for i in session.pq2 %}
+            {% if i == '1' %}
+                <ul>
+                  <li>I am concerned about how others feel.</li>
+                </ul>
+            {% elif i == '2' %}
+                <ul>
+                  <li>I am considered kind and soft hearted.</li>
+                </ul>           
+            {% elif i == '3' %}           
+                <ul>
+                  <li>I can easily start conversations.</li>
+                </ul>            
+            {% elif i == '4' %}           
+                <ul>
+                  <li>I'm skilled in handling social situations.</li>
+                </ul>           
+            {% else %}            
+                <ul>
+                  <li>I sometimes speak without previous thinking.</li>
+                </ul>           
+            {% endif %}
+          {% endfor %}  
+        </div>
+        <div class="col col-xl-2 col-md-6 col-sm-12 col-12">
+          <h6 style="display: inline">3</h6>
+          {% for i in session.pq3 %}
+            {% if i == '1' %}
+                <ul>
+                  <li>I pay attention to details.</li>
+                </ul>
+            {% elif i == '2' %}
+                <ul>
+                  <li>I like keeping everything organized.</li>
+                </ul>           
+            {% elif i == '3' %}           
+                <ul>
+                  <li>I never leave my belongings around.</li>
+                </ul>            
+            {% elif i == '4' %}           
+                <ul>
+                  <li>I am always prepared.</li>
+                </ul>           
+            {% else %}            
+                <ul>
+                  <li>I am more analytical than creative.</li>
+                </ul>           
+            {% endif %}
+          {% endfor %}  
+        </div>
+        <div class="col col-xl-2 col-md-6 col-sm-12 col-12">
+          <h6 style="display: inline">4</h6>
+          {% for i in session.pq4 %}
+            {% if i == '1' %}
+                <ul>
+                  <li>I consider myself very creative.</li>
+                </ul>
+            {% elif i == '2' %}
+                <ul>
+                  <li>I enjoy time spent in the nature.</li>
+                </ul>           
+            {% elif i == '3' %}           
+                <ul>
+                  <li>I consider I have excellent ideas.</li>
+                </ul>            
+            {% elif i == '4' %}           
+                <ul>
+                  <li>I believe in the importance of art.</li>
+                </ul>           
+            {% else %}            
+                <ul>
+                  <li>I am quick to understand most things.</li>
+                </ul>           
+            {% endif %}
+          {% endfor %}  
+        </div>
+        <div class="col col-xl-2 col-md-6 col-sm-12 col-12 pl-1">
+          <h6 style="display: inline">5</h6>
+          {% for i in session.pq5 %}
+            {% if i == '1' %}
+                <ul>
+                  <li>I get irritated easily.</li>
+                </ul>
+            {% elif i == '2' %}
+                <ul>
+                  <li>I am hardly able to relax.</li>
+                </ul>           
+            {% elif i == '3' %}           
+                <ul>
+                  <li>I get upset frequently.</li>
+                </ul>            
+            {% elif i == '4' %}           
+                <ul>
+                  <li>I am affected by disappointments in life.</li>
+                </ul>           
+            {% else %}            
+                <ul>
+                  <li>I feel stressed out most time.</li>
+                </ul>           
+            {% endif %}
+          {% endfor %}  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/result.css') }}">
+{% endblock content %}s

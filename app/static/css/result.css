@@ -1,0 +1,10 @@
+.R{position: relative;text-align: center;background-color: black;}
+.R1 img{opacity: .6;height:auto;max-height: 900px;}
+.R1 .centered {position: absolute;top: 80%;left: 50%;transform: translate(-50%, -50%);
+color: white;font-size:5vw;}
+.R1 .user{
+    position: absolute;top: 10%;left: 90%;transform: translate(-50%, -50%);
+font-size:20px;
+}
+.R2 h3{text-align: center;}
+.R2 #data{font-size: 18px;color:white}

@@ -1,1 +1,4 @@
-A website for students to find their optimal career path. Choosing the right career is not an easy task in anyone’s life. Peer pressure, pressure from parents, personal interests, can conflict the mind and hence, the selection process can be quite frustrating. As a result, student end up choosing wrong careers and finally, end up in jobs that they don’t love doing. So, to help the confused, this project aims to create a system that helps them to choose the right career, the digital way.
+#Futureode 
+Futureode is flask web application which makes use of  Machine Learning, NLP and recommendation system to predict the optimal career for a student.
+
+

@@ -1,0 +1,442 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="alert alert-success alert-dismissible text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+{% endwith %}
+<div class="s2">
+    <div class="cont1 text-center">
+        <h1 class="pb-3" style="font-size:5vw">Step 2</h1>
+        <h3 class="pb-3" >Student Survey Commerce</h3>
+        <p>This is a survey regarding the career options that you have chosen. 
+        This survey will mainly collect your academic details, 
+        your levels of intelligence and emotional quotient, 
+        and your interest in your current career. 
+        We value your privacy, and we assure you that none of your details will be shared with a third party.
+        Please fill honestly for accurate results.</p>
+    </div>
+    <div>
+        <form action="{{ url_for('science')}}" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <div class="container scibord">
+                <div class="text-center" id="gradehead">
+                    <h2>Select your class XII Grades</h2>
+                    <p>Pick grade D if not applicable</p>
+                </div>
+                <div>
+                    <hr id="line1"> 
+                </div>
+                <div style="position: relative;bottom: 19px;">
+                    <h4>
+                        <span class="badge badge-info">Section 1 of 5</span>
+                    </h4>
+                </div> 
+                <div class="row no-gutters text-center">
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">PHYSICS | ACCOUNTANCY | HISTORY</span></h6>
+                        <p>{{ form.sub1(id="sub") }}</p> 
+                    </div>
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">CHEMISTRY | BUSINESS STUDIES | ECONOMICS</span></h6>
+                        <p>{{ form.sub2(id="sub") }}</p> 
+                    </div>
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">MATHS | ECONOMICS | SOCIOLOGY</span></h6>
+                        <p>{{ form.sub3(id="sub") }}</p> 
+                    </div>
+                </div>
+                <div class="row no-gutters text-center">
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">BIOLOGY | INFORMATION PRACTICES | GEOGRAPHY</span></h6>
+                        <p>{{ form.sub4(id="sub") }}</p> 
+                    </div>
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">COMPUTER | LEGAL STUDIES | POLITICAL SCIENCE</span></h6>
+                        <p>{{ form.sub5(id="sub") }}</p> 
+                    </div>
+                    <div class="col-md">
+                        <h6><span class="badge badge-secondary">LANGUAGE</span></h6>
+                        <p>{{ form.sub6(id="sub") }}</p> 
+                    </div>
+                </div>
+                <div>
+                    <hr id="line1">
+                </div>
+                <div style="position: relative;bottom: 19px;">
+                    <h4>
+                        <span class="badge badge-info">Section 2 of 5</span>
+                    </h4>
+                </div> 
+                <div class="text-center" id="gradehead">
+                    <h2>IQ Test</h2>
+                    <p>This section deals with your intelligence.</p>
+                </div>
+                <div class="row"><!--iq1-->
+                    <div class="col-md-8">
+                        <h5>1. Count the number of triangles and squares in the given figure</h5>
+                        <div class="row">
+                            <div class="col-md">
+                            {{ form.iq1(id="iq1",style="list-style:none") }}
+                            {{ form.iq1.label(id="iq1label") }}
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq1.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url_for('static',filename='images/iq1.png')}}"  alt="IQ1">
+                    </div>
+                </div>
+                <div class="row"><!--iq2-->
+                    <div class="col-md">
+                        <h5>2. What  is  the  next  number in  the  series 0,6,24,60,120,210, ___</h5>
+                        <div class="row">
+                            <div class="col-md">
+                            {{ form.iq2(id="iq2",style="list-style:none") }}
+                            {{ form.iq2.label(id="iq2label") }}
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq2.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><!--iq3-->
+                    <div class="col-md-8">
+                        <h5>3. Count the number of triangles in the given figure</h5>
+                        <div class="row">
+                            <div class="col-md">
+                            {{ form.iq3(id="iq3",style="list-style:none") }}
+                            {{ form.iq3.label(id="iq3label") }}
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq3.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url_for('static',filename='images/iq3.png')}}" alt="IQ1">
+                    </div>
+                </div>
+                <div class="row"><!--iq4-->
+                    <div class="col-md">
+                        <h5>4. What  is  the  next  number in  the  series  2,5,9,19,37, ?</h5>
+                        <div class="row">
+                            <div class="col-md">
+                            {{ form.iq4(id="iq4",style="list-style:none") }}
+                            {{ form.iq4.label(id="iq4label") }}
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq4.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><!--iq5-->
+                     <div class="col-md">
+                        <h5>5.Which set of symbols should replace the question marks? 
+                            <span>
+                            <img src="{{ url_for('static',filename='images/iq5Q.png')}}" style="width:100%" alt="IQ5Q">
+                            </span> 
+                        </h5>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="row">
+                            <div class="col-md">
+                            <tr>
+                            <td>{{ form.iq5(id="iq5",style="list-style:none") }}</td> 
+                            <td>{{ form.iq5.label(id="iq5label") }}</td> 
+                            </tr>
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq5.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="text-center">
+                        <img src="{{ url_for('static',filename='images/iq5O.png')}}" style="width:250px;height:auto;" alt="IQ5O">
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><!--iq6-->
+                    <div class="col-md">
+                        <h5>6. Which number is the odd one out?</h5>
+                        <div class="row">
+                            <div class="col-md">
+                                <tr>
+                                    <td>{{ form.iq6(id="iq5",style="list-style:none") }}</td>
+                                    <td>{{ form.iq6.label(id="iq5label") }}</td>
+                                </tr>
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq6.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"><!--iq7-->
+                    <div class="col-md">
+                        <h5>7. Which is the larger fraction?</h5>
+                        <div class="row">
+                            <div class="col-md">
+                                <tr>
+                                    <td>{{ form.iq7(id="iq5",style="list-style:none") }}</td>
+                                    <td>{{ form.iq7.label(id="iq5label") }}</td>
+                                </tr>
+                            </div>
+                            <div class="col-md">
+                                {% for error in form.iq7.errors %}
+                                    <span style="color: red;">[{{ error }}]</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div><!--iq8-->
+                    <h5>8. Which is the missing section?</h5>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md">
+                        {{ form.iq8(id="iq8",style="list-style:none") }}
+                        {{ form.iq8.label(id="iq8label") }}
+                    </div>
+                    <div class="col-md">
+                        <img src="{{ url_for('static',filename='images/iq8Q.png')}}" style="width:100%%;width:250px;height:auto;" alt="IQ9Q">
+                    </div>
+                    <div class="col-md">
+                        <img src="{{ url_for('static',filename='images/iq8O.png')}}" style="width:100%%;width:250px;height:auto;" alt="IQ9O">
+                    </div>
+                    <div class="col-md">
+                        {% for error in form.iq8.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="row mt-3"><!--iq9-->
+                    <div class="col-md">
+                        <h5>9. Which does not belong in this sequence ?</h5>
+                        {{ form.iq9(id="iq9",style="list-style:none") }}
+                        {{ form.iq9.label(id="iq9label") }}
+                    </div>
+                    <div class="col-md">
+                        <img src="{{ url_for('static',filename='images/iq9Q.png')}}" style="width:100%%;width:300px" alt="IQ9O">
+                    </div>
+                    <div class="col-md">
+                        {% for error in form.iq7.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div><!--iq10-->
+                    <h5>10.What number should replace the question mark?</h5>
+                    <div class="row">
+                        <div class="col-md">
+                            {{ form.iq10.label(id="iq10label") }}
+                            {{ form.iq10(id="iq10",style="list-style:none") }}
+                        </div>
+                        <div class="col-md">
+                            <img src="{{ url_for('static',filename='images/iq10Q.png')}}" style="width:100%;" alt="IQ10Q">
+                        </div>
+                        <div class="col-md">
+                        {% for error in form.iq7.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr id="line1">
+                </div>
+                <div style="position: relative;bottom: 19px;">
+                    <h4>
+                        <span class="badge badge-info">Section 3 of 5</span>
+                    </h4>
+                </div>
+                <div class="text-center" id="gradehead">
+                    <h2>Personality Questionnaire</h2>
+                    <p>This section deals with your emotional intelligence.</p>
+                </div>
+                <!--Personality Questionnaire -->
+                <div class="row">
+                    <div class="col-md">
+                        <h5>1.Do you experience any of the below?</h5>
+                        {{ form.pq1.label(id="pqlabel") }}
+                        {{ form.pq1(multiple = true) }}
+                        <div class="ml-5">
+                        {% for error in form.pq1.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="col-md">
+                        <h5>2.Do you experience any of the below?</h5>
+                        {{ form.pq2.label(id="pqlabel") }}
+                        {{ form.pq2(id="pq_2",style="list-style:none") }}
+                        <div class="ml-5">
+                        {% for error in form.pq2.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <h5>3.Do you experience any of the below?</h5>
+                        {{ form.pq3.label(id="pqlabel") }}
+                        {{ form.pq3(id="pq_3",style="list-style:none") }}
+                        <div class="ml-5">
+                        {% for error in form.pq3.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <h5>4.Do you experience any of the below?</h5>
+                        {{ form.pq4.label(id="pqlabel") }}
+                        {{ form.pq4(id="pq_4",style="list-style:none") }}
+                        <div class="ml-5">
+                        {% for error in form.pq4.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md ">
+                        <h5>5.Do you experience any of the below?</h5>
+                        {{ form.pq5.label(id="pqlabel") }}
+                        {{ form.pq5(id="pq_5",style="list-style:none") }}
+                        <div class="ml-5">
+                        {% for error in form.pq5.errors %}
+                            <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr id="line1">
+                </div>
+                <div style="position: relative;bottom: 19px;">
+                    <h4>
+                        <span class="badge badge-info">Section 4 of 5</span>
+                    </h4>
+                </div>
+                <!--Memory Test -->
+                <div class="container Mem">
+                <h4 class="text-center">Memory Test</h4>
+                    <section class="score-panel">
+                        <ul class="stars">
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                            <li><i class="fa fa-star"></i></li>
+                        </ul>
+
+                        <span class="moves">0</span> Move(s)
+
+                        <div class="timer">
+                        </div>
+                    </section>
+
+                    <ul class="deck" id="card-deck">
+                        <li class="card" type="diamond">
+                            <i class="fa fa-diamond"></i>
+                        </li>
+                        <li class="card" type="plane">
+                            <i class="fa fa-paper-plane-o"></i>
+                        </li>
+                        <li class="card match" type="anchor">
+                            <i class="fa fa-anchor"></i>
+                        </li>
+                        <li class="card" type="bolt" >
+                            <i class="fa fa-bolt"></i>
+                        </li>
+                        <li class="card" type="cube">
+                            <i class="fa fa-cube"></i>
+                        </li>
+                        <li class="card match" type="anchor">
+                            <i class="fa fa-anchor"></i>
+                        </li>
+                        <li class="card" type="leaf">
+                            <i class="fa fa-leaf"></i>
+                        </li>
+                        <li class="card" type="bicycle">
+                            <i class="fa fa-bicycle"></i>
+                        </li>
+                        <li class="card" type="diamond">
+                            <i class="fa fa-diamond"></i>
+                        </li>
+                        <li class="card" type="bomb">
+                            <i class="fa fa-bomb"></i>
+                        </li>
+                        <li class="card" type="leaf">
+                            <i class="fa fa-leaf"></i>
+                        </li>
+                        <li class="card" type="bomb">
+                            <i class="fa fa-bomb"></i>
+                        </li>
+                        <li class="card open show" type="bolt">
+                            <i class="fa fa-bolt"></i>
+                        </li>
+                        <li class="card" type="bicycle">
+                            <i class="fa fa-bicycle"></i>
+                        </li>
+                        <li class="card" type="plane">
+                            <i class="fa fa-paper-plane-o"></i>
+                        </li>
+                        <li class="card" type="cube">
+                            <i class="fa fa-cube"></i>
+                        </li>
+                    </ul>
+
+                    <div id="popup1" class="overlay">
+                        <div class="popup">
+                            <h2>Congratulations 🎉</h2>
+                            <a class="close" href="#">×</a>
+                            <div class="content-1">
+                                Congratulations you're a winner 🎉🎉
+                            </div>
+                            <div class="content-2">
+                                <p>You made <span id=finalMove> </span> moves </p>
+                                <p>in <span id=totalTime> </span> </p>
+                                <p>Rating:  <span id=starRating></span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <script src="{{ url_for('static',filename='js/paths.js')}}"></script>
+                <div>
+                    <hr id="line1">
+                </div>
+                <div class="text-center" id="submitfinal">
+                {{ form.submit(class='btn btn-primary mb-3')}}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

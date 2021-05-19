@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="alert alert-success alert-dismissible text-center">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<div class="s3">
+    <div class="container text-center skchead">
+        <h1 class="pb-3" style="font-size:5vw">Step 3</h1>
+        <h3 class="pb-3" >Skills & Certifications</h3>
+    </div>
+    <form action="{{ url_for('skillcert')}}" method="post" style="text-align:center;display:inline" novalidate>
+        {{ form.hidden_tag() }}
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-sm-12">
+                    {{ form.skill.label(id="skilllabel") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    {{ form.skill(class='s3skill',rows='4',cols='100')}}
+                </div>
+                <div class="col-sm-2">
+                    {% for error in form.skill.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-12">
+                    {{ form.certifications.label(id="certificationslabel") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    {{ form.certifications(class='s3certifications',rows='4',cols='100')}}
+                </div>
+                <div class="col-sm-2">
+                    {% for error in form.certifications.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-12">
+            {{ form.submit(class='btn btn-dark mb-3',id="ssubmit")}}
+            </div>
+        </div>
+    </form>
+</div>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/skill.css') }}">
+{% endblock content %}
