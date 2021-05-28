@@ -1,0 +1,51 @@
+Material Sciences
+Environmental sciences
+Electric circuit analysis
+Electronic circuits
+Electric devices
+Human Anatomy & Physiology
+Switch theory and Logical Design
+Electrical and Electronic Instruments
+C++ & Data structure
+Dynamics of Bio fluids
+Material strengths
+Medical Instrumentation
+Control System Engineering
+Embedded systems in Medicine
+Microprocessors
+Principals of Diagnostics and Therapeutic Equipment
+Linear integrated circuits
+Medical informatics
+Signals and Systems
+Digital Image Processing
+Biomechanics
+Medical Instrumentation
+Biomedical Signal Processing
+Principals of radiological equipment
+Advanced biomedical instruments
+Biomaterials
+Engineering economics
+Hospital safety and management
+Biotelemetry
+principals of medical sciences 
+diagnostic and therapeutic applications
+assist practitioners like doctors and physicians
+rehabilitation of disabled patients
+artificial internal organs 
+Installation
+adjustment
+maintenance
+repair
+technical support for biomedical equipments.
+Evaluation of the safety, effectiveness and efficiency of all the biomedical equipment
+life scientists
+chemists
+medical scientists
+biological systems of humans and animals
+Prepare procedures
+publish research papers 
+designing of electrical circuits
+medical equipment
+computer simulations
+drug therapies.
+

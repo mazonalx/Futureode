@@ -1,0 +1,80 @@
+Analytical thinking
+Analyze test results and adjust design if needed
+Develop and test prototypes
+Design mechanical device projects
+Detail-oriented
+Develop design calculations
+Ensure designs meet legal guidelines and safety requirements
+Identify potential design improvements
+Knowledgeable in the machining and fabrication process
+Perform equipment and system calculations
+Product validation experience
+Provide cost estimates for materials, equipment, and/or labor
+Research materials for future design opportunities and usage
+Sound knowledge of engineering fundamentals
+Test building materials
+Troubleshoot equipment to solve problems
+Work to improve and maintain existing products
+Work in 3D design (computer-aided design, or “CAD”)
+Devise alternative mechanical structures 
+Develop new tools and systems to enhance production
+Complete assigned tasks within time and budget restraints
+Convert basic design information and requirements into working drawings
+Create blueprints using CAD (computer-aided design)
+Develop a scope and timeline for each project
+Draft standards and geometric, dimension, & tolerancing (GD&T) specifications
+Prepare designs and estimates
+AutoCAD
+Automated model programming
+CAD (computer-aided design)
+Engineering product data management software (EPDM)
+Microsoft office suite experience
+Pro-E CREO CAD software
+Understand diagrams, drafts, flowcharts, and other information and documentation
+Use software to design at the level of industry and government standards
+Geometry
+Trigonometry
+Calculus
+Statistics
+Compliance
+Inductive reasoning
+Deductive reasoning
+Design
+Environmental awareness
+Written communication
+Verbal communication
+Entrepreneurship
+Independent thinking
+Investigation
+Commitment to ongoing improvement
+Organizational approach
+Project management
+Strategic planning
+Statistics
+Data analysis
+Structural analysis
+Causal relationships
+Collaboration
+Diagnostic approach
+Evaluation skills
+Integration
+Sound judgment
+Optimization
+Thermodynamics
+Computer Aided Design (CAD): CAD is often the heart and soul of ergonomics and industrial design. A mechanical engineer looking to specialize in this area must master software like SolidWorks, CATIA, CREO/Pro-E, Rhino etc.
+Finite Element Analysis (FEA): Most designed components and the material to be used for design of components, say sandwich composites for the chassis of aeroplane, are tested for failure using software like ANSYS, COMSOL or ABAQUS. Often you have to work with mesh reduction software such as Meshlab to achieve computational results faster.
+Computational Fluid Dynamics: Design of turbomachinery and microfluidic drug delivery systems involve complex calculations and the design dimensions can be optimized using CFD. ANSYS Fluent and OpenFOAM are great tools to work with CFD applications.
+Mechatronics: Engineers who are keen to specialize in mechatronics often deal with control systems engineering. For control system design, one needs to be well versed with MATLAB/Simulink. I found it useful while simulating the motion of an exoskeleton using a reference signal generated from the data of a person walking on the level ground.
+Computer Programming: Industries have customized software which often require coding in C/C++ environment to achieve complex operations. knowledge in a High Level Programming Language 
+AutoCAD
+Automated model programming
+CAD (computer-aided design)
+Engineering product data management software (EPDM)
+Microsoft office suite experience
+Pro-E CREO CAD software
+Understand diagrams, drafts, flowcharts, and other information and documentation
+Use software to design at the level of industry and government standards
+Geometry
+Trigonometry
+Calculus
+Statistics

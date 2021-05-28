@@ -1,0 +1,98 @@
+As-is
+Buyer’s agent
+listing agent
+Closing
+Closing costs
+Days on market (DOM)
+Due diligence
+Escrow holder
+Homeowner’s association (HOA)
+iBuyer
+Multiple listing service (MLS)
+REALTOR 
+Conventional sale
+Land lease
+Probate sale
+Real-estate owned (REO)
+Rent back
+Subject to inspection
+Short sale
+Trust sale
+Tenancy in common (TIC)
+Adjustable rate mortgage
+Debt-to-income ratio
+Earnest money deposit
+Equity
+FHA loan
+FHA 203k rehab loan
+Fixed rate mortgage
+Hard money loan
+Mortgage pre-approval letter
+Natural hazards disclosure (NHD) report
+Pre-approval
+Preliminary report
+Pre-qualification
+Pre-approval
+Principal
+Proof of funds
+Purchase and sale agreement
+Seller disclosure
+Termite Report
+VA loan
+Appraisal
+Appraisal contingency
+Backup offer
+Blind offer
+Home sale contingency
+Inspection contingency
+Inspection
+Loan contingency
+Offer/counter offer
+Option period
+Seller concession
+Title search
+carry
+back
+Servicer
+sale
+ownership
+tax
+Treasury
+contract
+mortgage
+Estate
+Settlement
+Refinance
+refusal
+egress
+survivorship
+leaseback
+loan
+Principal
+agreement
+money
+deed
+Rate
+Escrow
+Fair
+market
+association
+insurance
+foreclosure
+Lease
+Lender
+Loan
+banker
+broker
+insurance
+amortization
+cash
+balance
+fee
+qualification
+interest
+Principal
+agreement
+money
+deed
+Rate

@@ -1,0 +1,46 @@
+Transforms And Partial Differential Equations
+Statistics And Numerical Methods
+Engineering Thermodynamics
+Applied Thermodynamics and Heat Transfer
+Fluid Mechanics and Machinery
+Engineering Materials and Metallurgy
+Automotive Engines
+Strength of Materials
+Mechanics of Machines
+Electronics and Microprocessors
+Production Technology
+Automotive Chassis
+Design of Machine Elements
+Automotive Engine Components Design
+Automotive Transmission
+Automotive Chassis Components Design
+Automotive Electrical and Electronics
+Two and Three Wheelers
+Vehicle Design and Data Characteristics
+Finite Element Analysis
+Automotive Fuels and Lubricants
+Composite Materials
+Engine and Vehicle Management System
+Vehicle Body Engineering
+Vehicle Dynamics
+Vehicle Maintenance
+Automotive Safety
+Automotive Pollution and Control
+Robotics
+Automotive Aero-dynamics
+designing, manufacturing, mechanical mechanisms as well operations of automobiles
+vehicle engineering 
+cars, motorcycles, trucks and buses 
+Safety engineering
+Cost
+Fuel economy
+emissions
+Program timing
+NVH engineering
+Assembly feasibility
+Vehicle electronics
+Quality management
+Performance
+Shift quality
+Durability/corrosion engineering
+Drivability

@@ -1,19 +1,28 @@
 /* Science.html*/
-.s2{position: relative;background-repeat: repeat-y;overflow: hidden; width: 100%;height: auto;padding:40px;background: rgb(241,233,250);background: linear-gradient(97deg, rgba(241,233,250,1) 0%, rgba(244,119,253,1) 53%, rgba(26,255,235,1) 95%, rgba(0,214,255,1) 100%);}
+.s2{position: relative;background-repeat: repeat-y; width: 100%;height: auto;padding:40px;background: rgb(241,233,250);}
 .cont1  h1{font-family: 'Times New Roman', Times, serif;color: rgb(3, 3, 3);}
 .cont1  h3{font-family: 'Times New Roman', Times, serif;color: rgb(3, 3, 3);}
 .cont1  p{font-family: 'Times New Roman', Times, serif;color: rgb(2, 2, 2);font-size:20px}
 .alert{position:relative;margin-bottom: 0px}
-#gradehead h2{color:rgb(0, 0, 0);font-family: 'Times New Roman', Times, serif;}
-#gradehead p{color:rgb(0, 0, 0);font-family: 'Times New Roman', Times, serif;}
+#section1 h2{color:rgb(0, 0, 0);font-family: 'Times New Roman', Times, serif;}
+#section1 p{color:rgb(0, 0, 0);font-family: 'Times New Roman', Times, serif;}
 #line1{border-top: 2px solid rgb(1, 248, 215);}
-.scibord{border: 1px solid rgb(31, 194, 180);border-radius:.25rem!important;background: rgb(255, 255, 255);}
 #sublabel{font-size:25px;font-family: Georgia, 'Times New Roman', Times, serif;color: white;}
 .form.sub1.label{display: none;}
 .siq h5{color:white;}
 #iq10{border: 2px solid black;border-radius:.25rem}
 #iq10label{padding-left: 10px;}
-
+.scibord{
+	border: 1px solid rgb(31, 194, 180);
+	border-radius:.25rem!important;background: rgb(255, 255, 255);
+	position: relative;padding:0px;
+}
+#pqbox{
+	border:2px solid black;font-size: 15px;
+}
+#pqbox:hover{
+	transform: scale(1.1);
+}
 html {
 	box-sizing: border-box;
 }
@@ -44,9 +53,9 @@ body {
  */
 
 
-.deck {
+ .deck {
 	width: 85%;
-	background: #716F71;
+	background: white;
 	padding: 1rem;
 	border-radius: 4px;
 	box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
@@ -119,7 +128,7 @@ body {
 	text-align: left;
 	margin-bottom: 10px;
 }
-
+/*
 .score-panel .stars {
 	margin: 0;
 	padding: 0;
@@ -131,15 +140,15 @@ body {
 	list-style: none;
 	display: inline-block;
 }
-
+*/
 .score-panel .restart {
 	float: right;
 	cursor: pointer;
 }
 
-.fa-star {
+/*.fa-star {
 	color: #FFD700;
-}
+}*/
 
 .timer {
 	display: inline-block;
@@ -212,11 +221,6 @@ body {
 	visibility: visible !important;
 	opacity: 100 !important;
 }
-
-#starRating li {
-	display: inline-block;
-}
-
 #play-again {
 	background-color: #141214;
 	padding: 0.7rem 1rem;
@@ -228,7 +232,6 @@ body {
 	color: #ffffff;
 	border-radius: 5px;
 }
-
 /* animations */
 @keyframes flipInY {
 	from {
@@ -326,13 +329,13 @@ body {
 	}
 
 	.deck {
-		width: 660px;
-		height: 680px;
+		width: 720px;
+		height: 720px;
 	}
 
 	.deck .card {
-		height: 125px;
-		width: 125px;
+		height: 100px;
+		width: 100px;
 	}
 
 	.popup {

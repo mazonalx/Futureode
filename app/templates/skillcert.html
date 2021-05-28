@@ -10,53 +10,489 @@
         </ul>
     {% endif %}
 {% endwith %}
-<div class="s3">
-    <div class="container text-center skchead">
-        <h1 class="pb-3" style="font-size:5vw">Step 3</h1>
-        <h3 class="pb-3" >Skills & Certifications</h3>
+<div class="s4">
+    <div class="container-fluid text-center skchead py-5">
+        <h1 class="pb-3" style="font-size:5vw">Step 4</h1>
+        <h3 class="pb-3" >Skills Certifications & Books</h3>
+        <p>(Select multiple options by dragging or clicking while holding down ctrl)</p>
     </div>
-    <form action="{{ url_for('skillcert')}}" method="post" style="text-align:center;display:inline" novalidate>
+    <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="col-sm-12">
-                    {{ form.skill.label(id="skilllabel") }}
-                </div>
-            </div>
+        <div class="container-fluid text-center s41">
             <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    {{ form.skill(class='s3skill',rows='4',cols='100')}}
+                <div class="col">
+                    <div>
+                        <div>
+                            {{ form.skills.label(id="sklabel") }}
+                        </div>
+                        <div>
+                            {{ form.skills(class="sk") }}
+                            <div>
+                            {% for error in form.skills.errors %}
+                                <span style="color: red;">{{ error }}</span>
+                            {% endfor %}
+                            </div>
+                            <div>{{ form.skill_oth.label }}</div>
+                            <div>{{ form.skill_oth(id="sko") }}</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    {% for error in form.skill.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
+                <div class="col">
+                    <div>
+                        {{ form.certifications.label(id="sklabel") }}
+                    </div>
+                    <div>
+                        {{ form.certifications(class="sk") }}
+                        <div>
+                        {% for error in form.certifications.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                        <div>{{ form.certifications_oth.label }}</div>
+                        <div>{{ form.certifications_oth(id="sko") }}</div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div>
+                        {{ form.aoe.label(id="sklabel") }}
+                    </div>
+                    <div>
+                        {{ form.aoe(class="sk") }}
+                        <div>
+                        {% for error in form.aoe.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                        </div>
+                        <div>{{ form.aoe_oth.label }}</div>
+                        <div>{{ form.aoe_oth(id="sko") }}</div>
+                    </div>
                 </div>
             </div>
-            <div class="row no-gutters">
-                <div class="col-sm-12">
-                    {{ form.certifications.label(id="certificationslabel") }}
-                </div>
+        </div>  
+        <div class="container-fluid">
+            <div class="text-center">
+                <h3>Take a look at these books</h3>
+                <p>See anything interesting</p>
             </div>
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    {{ form.certifications(class='s3certifications',rows='4',cols='100')}}
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#Science">Science</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Commerce">Commerce</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#Humanities">Humanities</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="container-fluid tab-pane active" id="Science">
+                    <div class="card-deck">
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">COMPUTER SCIENCE ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                    <input type="checkbox" name="b11" value="{{S1[0]}}"> <span data-toggle="tooltip" title="{{S1[1]}}">{{S1[0]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="b12" value="{{S1[2]}}"> <span data-toggle="tooltip" title="{{S1[3]}}">{{S1[2]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">ELECTRONICS ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b21" value="{{S1[4]}}"> <span data-toggle="tooltip" title="{{S1[5]}}">{{S1[4]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b22" value="{{S1[6]}}"> <span data-toggle="tooltip" title="{{S1[7]}}">{{S1[6]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">AERONAUTICAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b31" value="{{S1[8]}}"> <span data-toggle="tooltip" title="{{S1[9]}}">{{S1[8]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b32" value="{{S1[10]}}"> <span data-toggle="tooltip" title="{{S1[11]}}">{{S1[10]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">ARCHITECTURAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b41" value="{{S1[12]}}"> <span data-toggle="tooltip" title="{{S1[13]}}">{{S1[12]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b42" value="{{S1[14]}}"> <span data-toggle="tooltip" title="{{S1[15]}}">{{S1[14]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">AUTOMOBILE ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b51" value="{{S1[16]}}"> <span data-toggle="tooltip" title="{{S1[17]}}">{{S1[16]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b52" value="{{S1[18]}}"> <span data-toggle="tooltip" title="{{S1[19]}}">{{S1[18]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BIOMEDICAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b61" value="{{S1[20]}}"> <span data-toggle="tooltip" title="{{S1[21]}}">{{S1[20]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b62" value="{{S1[22]}}"> <span data-toggle="tooltip" title="{{S1[23]}}">{{S1[22]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">CHEMICAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b71" value="{{S1[24]}}"> <span data-toggle="tooltip" title="{{S1[25]}}">{{S1[24]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b72" value="{{S1[26]}}"> <span data-toggle="tooltip" title="{{S1[27]}}">{{S1[26]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">CIVIL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b81" value="{{S1[28]}}"> <span data-toggle="tooltip" title="{{S1[29]}}">{{S1[28]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b82" value="{{S1[30]}}"> <span data-toggle="tooltip" title="{{S1[31]}}">{{S1[30]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">ENVIRONMENTAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b91" value="{{S1[32]}}"> <span data-toggle="tooltip" title="{{S1[33]}}">{{S1[32]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b92" value="{{S1[34]}}"> <span data-toggle="tooltip" title="{{S1[35]}}">{{S1[34]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">ELECTRICAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b91" value="{{S1[36]}}"> <span data-toggle="tooltip" title="{{S1[37]}}">{{S1[36]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b92" value="{{S1[38]}}"> <span data-toggle="tooltip" title="{{S1[39]}}">{{S1[38]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-deck">
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">MECHANICAL ENGINEERING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                    <input type="checkbox" name="b101" value="{{S1[40]}}"> <span data-toggle="tooltip" title="{{S1[41]}}">{{S1[40]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="b102" value="{{S1[42]}}"> <span data-toggle="tooltip" title="{{S1[43]}}">{{S1[42]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">MEDICINE BOOKS</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b111" value="{{S1[44]}}"> <span data-toggle="tooltip" title="{{S1[45]}}">{{S1[44]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="b112" value="{{S1[46]}}"> <span data-toggle="tooltip" title="{{S1[47]}}">{{S1[46]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">NURSING</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="b121" value="{{S1[48]}}"> <span data-toggle="tooltip" title="{{S1[49]}}">{{S1[48]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-2">
-                    {% for error in form.certifications.errors %}
-                        <span style="color: red;">[{{ error }}]</span>
-                    {% endfor %}
+                <div class="container-fluid tab-pane fade" id="Commerce">
+                    <div class="card-deck">
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in STATISTICS</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                    <input type="checkbox" name="c11" value="{{C1[0]}}"> <span data-toggle="tooltip" title="{{C1[1]}}">{{C1[0]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="c12" value="{{C1[2]}}"> <span data-toggle="tooltip" title="{{C1[3]}}">{{C1[2]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM Tourism and Travel management</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c21" value="{{C1[4]}}"> <span data-toggle="tooltip" title="{{C1[5]}}">{{C1[4]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c22" value="{{C1[6]}}"> <span data-toggle="tooltip" title="{{C1[7]}}">{{C1[6]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in Management accouting and international finance</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c31" value="{{C1[8]}}"> <span data-toggle="tooltip" title="{{C1[9]}}">{{C1[8]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c32" value="{{C1[10]}}"> <span data-toggle="tooltip" title="{{C1[11]}}">{{C1[10]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in Marketing</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c41" value="{{C1[12]}}"> <span data-toggle="tooltip" title="{{C1[13]}}">{{C1[12]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c42" value="{{C1[14]}}"> <span data-toggle="tooltip" title="{{C1[15]}}">{{C1[14]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM Banking and finance</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c51" value="{{C1[16]}}"> <span data-toggle="tooltip" title="{{C1[17]}}">{{C1[16]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c52" value="{{C1[18]}}"> <span data-toggle="tooltip" title="{{C1[19]}}">{{C1[18]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in Accounting</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c61" value="{{C1[20]}}"> <span data-toggle="tooltip" title="{{C1[21]}}">{{C1[20]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c62" value="{{C1[22]}}"> <span data-toggle="tooltip" title="{{C1[23]}}">{{C1[22]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in Accounting and taxation</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c71" value="{{C1[24]}}"> <span data-toggle="tooltip" title="{{C1[25]}}">{{C1[24]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c72" value="{{C1[26]}}"> <span data-toggle="tooltip" title="{{C1[27]}}">{{C1[26]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">BCOM in applied economics</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c81" value="{{C1[28]}}"> <span data-toggle="tooltip" title="{{C1[29]}}">{{C1[28]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c82" value="{{C1[30]}}"> <span data-toggle="tooltip" title="{{C1[31]}}">{{C1[30]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid tab-pane fade" id="Humanities">
+                    <div class="card-deck">
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Arts in English</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                    <input type="checkbox" name="c11" value="{{H1[0]}}"> <span data-toggle="tooltip" title="{{H1[1]}}">{{H1[0]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" name="c12" value="{{H1[2]}}"> <span data-toggle="tooltip" title="{{H1[3]}}">{{H1[2]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Fine Arts</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c21" value="{{H1[4]}}"> <span data-toggle="tooltip" title="{{H1[5]}}">{{H1[4]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c22" value="{{H1[6]}}"> <span data-toggle="tooltip" title="{{H1[7]}}">{{H1[6]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Business Administration</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c31" value="{{H1[8]}}"> <span data-toggle="tooltip" title="{{H1[9]}}">{{H1[8]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c32" value="{{H1[10]}}"> <span data-toggle="tooltip" title="{{H1[11]}}">{{H1[10]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Integrated Law course(B.A + L.L.B.)</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c41" value="{{H1[12]}}"> <span data-toggle="tooltip" title="{{H1[13]}}">{{H1[12]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c42" value="{{H1[14]}}"> <span data-toggle="tooltip" title="{{H1[15]}}">{{H1[14]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Journalism and Mass Communication </h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c51" value="{{H1[16]}}"> <span data-toggle="tooltip" title="{{H1[17]}}">{{H1[16]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c52" value="{{H1[18]}}"> <span data-toggle="tooltip" title="{{H1[19]}}">{{H1[18]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-xl-block"><!-- wrap every 5 on xl--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Fashion Design </h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c61" value="{{H1[20]}}"> <span data-toggle="tooltip" title="{{H1[21]}}">{{H1[20]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c62" value="{{H1[22]}}"> <span data-toggle="tooltip" title="{{H1[23]}}">{{H1[22]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+                        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4 id="ctit">Bachelor of Hotel Management</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="checkbox pb-3">
+                                <input type="checkbox" name="c71" value="{{H1[24]}}"> <span data-toggle="tooltip" title="{{H1[25]}}">{{H1[24]}}</span>
+                                </div>
+                                <div class="checkbox">
+                                <input type="checkbox" name="c72" value="{{H1[26]}}"> <span data-toggle="tooltip" title="{{H1[27]}}">{{H1[26]}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-sm-12">
-            {{ form.submit(class='btn btn-dark mb-3',id="ssubmit")}}
-            </div>
+        <div class="text-center">
+            {{ form.submit(class='btn btn-dark mb-3',id="s4submit")}}
         </div>
     </form>
 </div>
 <link rel="stylesheet" href="{{ url_for('static',filename='css/skill.css') }}">
+<script src="{{ url_for('static',filename='js/skill.js') }}"></script>
 {% endblock content %}

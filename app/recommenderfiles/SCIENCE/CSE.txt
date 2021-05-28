@@ -1,0 +1,76 @@
+Coding and programming
+C language
+C++
+JAVA
+PYTHON
+JAVASCRIPT
+PHP
+SQL
+OBJECTIVE C
+ORACLE
+C#
+HTML
+PASCAL
+PERL
+RUST
+KOTLIN
+DART
+SWIFT
+RUBY
+SDLC knowledge
+Hardware
+Networking
+Secure coding
+Cryptography
+Code reviewing
+Databases knowledge
+Communication skills
+Resilience
+USER INTERFACE OR USER EXPERIENCE 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+Front End
+Back End
+HTML
+CSS
+Javascript
+PHP
+MySQL
+Bootstrap
+React
+Node JS
+DOTNET
+Artificial Intelligence (AI)
+Data Science and Machine Learning
+Internet of Things (IoT)
+Robotic Process Automation (RPA)
+Virtual Reality
+Mobile App Technologies
+Android App development
+IOS App development
+Flutter
+React Native
+Ionic
+Xamarin
+PhoneGap
+Appcelerator
+RhoMobile
+MoSync
+Widget
+Critical thinking skills
+Presentation skills
+Communication skills
+Listening skills
+Leadership skills
+Ability to solve easily
+Teamwork

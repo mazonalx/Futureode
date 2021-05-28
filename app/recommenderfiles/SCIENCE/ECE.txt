@@ -1,0 +1,98 @@
+Coding and programming
+C language
+C++
+JAVA
+PYTHON
+JAVASCRIPT
+PHP
+SQL
+OBJECTIVE C
+ORACLE
+C#
+HTML
+PASCAL
+PERL
+RUST
+KOTLIN
+DART
+SWIFT
+RUBY
+SDLC knowledge
+Hardware
+Networking
+Secure coding
+Cryptography
+Code reviewing
+Databases knowledge
+Communication skills
+Resilience
+USER INTERFACE OR USER EXPERIENCE 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+Front End
+Back End
+HTML
+CSS
+Javascript
+PHP
+MySQL
+Bootstrap
+React
+Node JS
+DOTNET
+Artificial Intelligence (AI)
+Data Science and Machine Learning
+Internet of Things (IoT)
+Robotic Process Automation (RPA)
+Virtual Reality
+Mobile App Technologies
+Android App development
+IOS App development
+Flutter
+React Native
+Ionic
+Xamarin
+PhoneGap
+Appcelerator
+RhoMobile
+MoSync
+Widget
+Critical thinking skills
+Presentation skills
+Communication skills
+Listening skills
+Leadership skills
+Ability to solve easily
+Teamwork
+MATLAB 
+Verilog/VHDL 
+Python, Perl, Bash
+Embedded C
+Good knowledge in theory and practical's on micro controllers (PIC, 8051)
+Programming in C , Embedded C, Assembly language
+Knowledge of various peripherals – UART, Timers, ADC/DAC , SPI, I2C
+Understanding of Memory regions (heap, stack etc), Interrupts, DMA
+Driver Software development – Understanding devices, registers and programming
+Understanding of Operating systems, Real Time OS - Coding using inter process communication, semaphores, mutex
+Debugging skills – Basic Electronics Debugs and Troubleshooting
+undamentals of Digital Logic Design
+Microarchitecture, State machines, Clocks, Combinational & Sequential Logic
+Fundamentals of Analog Circuit Design
+PLLS, ADC/DAC, High speed signaling, Signal integrity issues (cross talk, jitter etc)
+Design Methodologies and Flows
+RTL design, Physical design, STA (Static Timing Analysis)
+Hardware Description Languages
+Verilog/SystemVerilog, VHDL
+Transistors and Process Technologies – CMOS, FINFET etc
+Programming and scripting languages - C , Perl, Python
+Domain Knowledge – CPUs, Wireless, Communication, DSP 

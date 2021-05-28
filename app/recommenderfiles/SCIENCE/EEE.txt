@@ -1,0 +1,155 @@
+Analytical skills
+Problem-solving skills
+Critical thinking
+Creativity
+Coding SKills
+C Skill coding
+Good Programming Skills
+Strong Data Structures and Algorithms skills
+Basic web development knowledge
+Basics of Machine Learning
+Basics of security, vulnerabilities, and cryptography
+Ability to grasp the knowledge quickly
+Calculus
+Linear Algebra and Ordinary Differential Equations
+Chemistry I
+Modern Physics
+Introduction to computer programming
+Data Analysis and Interpretation
+Economics
+Abstractions and Paradigms in Programming
+Chemistry Lab
+Physics Lab
+Workshop Practice
+Abstractions and Paradigms in Programming
+Engineering Graphics and Drawing
+Semester 3
+Semester 4
+Numerical Analysis 
+Electrical Engineering is that branch of Engineering which deals with the study of application of electricity, electronics and electromagnetism. Trained electrical engineers design electric circuits and equipment. They work on large power plants as well in small hardware companies which includes designing, manufacturing and operating power plants, industrial machinery, electrical motors, computer chips and ignition systems for automobiles, aircrafts, space crafts and all kinds of engines.Electrical Engineering is spread across a range of specialties such as 
+Critical thinking
+Creativity
+Coding SKills
+C Skill coding
+Good Programming Skills
+Strong Data Structures and Algorithms skills
+Basic web development knowledge
+acoustics, speech, signal processing to electromagnetic compatibility, automobiles to vehicular technology, geo-science and remote sensing, laser and electro-optics, robotics, ultra-sonic, ferroelectrics and frequency control.
+Control And Instrumentation Engineer
+Electronics Engineer
+Broadcast Engineer
+Electrical Engineer
+Design Engineer
+Nuclear Engineer
+Consultant
+Systems Analyst
+Calculus
+Chemistry
+Physics
+Elements of Electrical Engineering
+Art of Programming
+Mathematics
+Analog Electronic Circuits
+Network Analysis and Synthesis
+Electrical Transducers and Measurements
+ICT Tools and Security
+DC Machines and Transformers
+Digital Electronic Circuits
+Control System Engineering
+Engineering Electromagnetics
+Rotating AC Machines
+High Voltage Engineering
+Utilization of Electrical Power
+Microprocessor and Micro controller
+Electrical Drives and Traction Systems
+Testing, Commissioning and Maintenance of Electrical Equipment
+Digital Signal Processors for Electrical Engineering
+Power System Protection and Switchgear
+Environment and Energy Studies
+Electrical Workshop Practices
+Thermal and Hydraulic Prime Movers
+Electrical Engineering Materials
+Fundamentals of Electrical Power System
+Fundamentals of Power Electronics
+Analysis of Electrical Power System
+Power Electronic Converters
+Power System Operation and Control
+Electrical Machine Design
+Coding SKills
+C Skill coding
+Coding and programming
+C language
+C++
+JAVA
+PYTHON
+JAVASCRIPT
+PHP
+SQL
+OBJECTIVE C
+ORACLE
+C#
+HTML
+PASCAL
+PERL
+RUST
+KOTLIN
+DART
+SWIFT
+RUBY
+SDLC knowledge
+Hardware
+Networking
+Secure coding
+Cryptography
+Code reviewing
+Databases knowledge
+Communication skills
+Resilience
+USER INTERFACE OR USER EXPERIENCE 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+3D Graphic in Web & Mobile UI
+Virtual Reality
+Neumorphism
+Asymmetrical Layouts
+Micro Interactions
+Animated Graphics 
+Front End
+Back End
+HTML
+CSS
+Javascript
+PHP
+MySQL
+Bootstrap
+React
+Node JS
+DOTNET
+Artificial Intelligence (AI)
+Data Science and Machine Learning
+Internet of Things (IoT)
+Robotic Process Automation (RPA)
+Virtual Reality
+Mobile App Technologies
+Android App development
+IOS App development
+Flutter
+React Native
+Ionic
+Xamarin
+PhoneGap
+Appcelerator
+RhoMobile
+MoSync
+Widget
+Critical thinking skills
+Presentation skills
+Communication skills
+Listening skills
+Leadership skills
+Ability to solve easily
+Teamwork

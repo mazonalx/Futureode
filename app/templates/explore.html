@@ -10,15 +10,14 @@
             </ul>
         {% endif %}
 {% endwith %}
-    <div class="s1">
-       <img src="{{ url_for('static',filename='images/S1.jpeg') }}" alt="S1" class="s1image">
+    <div class="xplore">
         <div class="content1 text-center">
             <h1 class="pb-3" style="font-size:5vw">Step 2</h1>
             <h3 class="pb-3" >Student Feedback Analysis</h3>
             <p>Hi, To continue please provide us with your stream and detailed feedback about your stream</p>
         </div>
         <div class="container">
-            <form action="{{ url_for('explore')}}" method="post" novalidate>
+            <form action="{{ url_for('explore') }}" method="post">
                 {{ form.hidden_tag() }}
                 <div class="content2"> 
                     <div class="container text-center">
@@ -41,16 +40,201 @@
                     </div>
                 </div>
                 <div class="container A p-0">
-                    <h3>1.Are/were you able to properly finalize your choice of subject stream before opting for it?</h3> 
-                    {{ form.q1.label(id="o1") }}{{ form.q1(style="list-style:none",id="o2") }}
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>1.Are/were you able to properly finalize your choice of subject stream before opting for it?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q1" id="option1" value="Yes, I have/had properly decided my choice of subject stream" checked>Yes, I have/had properly decided my choice of subject stream.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q1" id="option2" value="No, I will be selecting/selected the subject stream suggested by my parents/guardians/teachers.">No, I will be selecting/selected the subject stream suggested by my parents/guardians/teachers.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option3">
+                                    <input type="radio" class="form-check-input" name="q1" id="option3" value="No, I may have/had to select a subject stream according to my marks">No, I may have/had to select a subject stream according to my marks.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" >
+                                    <input type="radio" class="form-check-input" name="q1" id="options" value="No, I will be selecting/selected the subject stream opted by my friends">No, I will be selecting/selected the subject stream opted by my friends.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" >
+                                    <input type="radio" class="form-check-input" name="q1" id="options" value="Other">Other (please specify)<br> 
+                                    <input type="text" name="q11" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>2.Will/did you choose your subject stream according to the subjects of your choice?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q2" id="option1" value="Yes, I was able to/will select the subject stream which I was/am good in." checked>Yes, I have/had properly decided my choice of subject stream.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q2" id="option2" value="No, I chose/will choose a different subject stream.">No, I chose/will choose a different subject stream.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option3">
+                                    <input type="radio" class="form-check-input" name="q2" id="option3" value="I may have to/had to change my school to select a stream of my choice.">I may have to/had to change my school to select a stream of my choice.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" >
+                                    <input type="radio" class="form-check-input" name="q2" id="options" value="Other">Other (please specify)<br> 
+                                    <input type="text" name="q22" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>3.Did/do you want to consult an education/career counselor before opting for the right stream?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q3" id="option1" value="Yes, it would have been/would be helpful" checked>Yes, it would have been/would be helpful.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q3" id="option2" value="No, I am/was fine with my choice of stream and have/had no second-thoughts.">No, I am/was fine with my choice of stream and have/had no second-thoughts.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option3">
+                                    <input type="radio" class="form-check-input" name="q3" id="option3" value="Others">If any comments please mention in the box below.<br>
+                                    <input type="text" name="q33" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>4.Do/did your parents have/had any influence on your decision regarding the selection of streams?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q4" id="option1" value="Yes, they had/have complete influence on my decision of choosing a stream." checked>Yes, they had/have complete influence on my decision of choosing a stream.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q4" id="option2" value="No, they will allow/allowed me to make my own choice.">No, they will allow/allowed me to make my own choice.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option3">
+                                    <input type="radio" class="form-check-input" name="q4" id="option3" value="Others">If any comments please mention in the box below.<br>
+                                    <input type="text" name="q44" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>5.Do/did you feel like doing a deep research regarding all the subject streams and where does each one of them lead to?(further studies, careers)</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q5" id="option1" value="Yes" checked>Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q5" id="option2" value="No">No
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option3">
+                                    <input type="radio" class="form-check-input" name="q5" id="option3" value="Others">Other (please specify)<br>
+                                    <input type="text" name="q55" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>6.Would you like browsing a website or an app which helps you to know about all the established as well as offbeat study and career paths?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q6" id="option1" value="Yes Why not?" checked>Yes
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q6" id="option2" value="No I'm good">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                        <h3>7.Have you ever been across an informational website or any other source of information which lets you know everything about the subjects you are passionate about and where would these subjects lead to?</h3> 
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check">
+                                <label class="form-check-label" for="option1">
+                                    <input type="radio" class="form-check-input" name="q7" id="option1" value="No" checked>No
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label" for="option2">
+                                    <input type="radio" class="form-check-input" name="q7" id="option2" value="Others">If Yes, please mention in the below box<br>
+                                    <input type="text" name="q77" value=""/> 
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container A p-0">
+                    <div class="card">
+                        <div class="card-header">
+                    <h3>8.Was the stream tough for you?</h3> 
+                        </div>
+                        <div class="card-body">
+                    <input type="text" name="q8" id="options" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="row text-center">
                     <div class="col">
-                    {{ form.submit(class='btn btn-light',id="fsubmit") }}
+                    {{  form.submit(id='fsubmit',class = 'btn btn-lg btn-dark mb-3')  }}
                     </div>
                 </div>
             </form>
         </div>   
-    </div>  
-
+    </div>
+    <script src="url_for('static',filename='js/explore.js')"></script>
 {% endblock %}

@@ -10,13 +10,13 @@ let moves = 0;
 let counter = document.querySelector(".moves");
 
 // declare variables for star icons
-const stars = document.querySelectorAll(".fa-star");
+//const stars = document.querySelectorAll(".fa-star");
 
 // declaring variable of matchedCards
 let matchedCard = document.getElementsByClassName("match");
 
  // stars list
- let starsList = document.querySelectorAll(".stars li");
+ //let starsList = document.querySelectorAll(".stars li");
 
  // close icon in modal
  let closeicon = document.querySelector(".close");
@@ -70,10 +70,10 @@ function startGame(){
     moves = 0;
     counter.innerHTML = moves;
     // reset rating
-    for (var i= 0; i < stars.length; i++){
+   /* for (var i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
-    }
+    }*/
     //reset timer
     second = 0;
     minute = 0; 
@@ -162,7 +162,7 @@ function moveCounter(){
         startTimer();
     }
     // setting rates based on moves
-    if (moves > 8 && moves < 12){
+   /* if (moves > 8 && moves < 12){
         for( i= 0; i < 3; i++){
             if(i > 1){
                 stars[i].style.visibility = "collapse";
@@ -175,7 +175,7 @@ function moveCounter(){
                 stars[i].style.visibility = "collapse";
             }
         }
-    }
+    }*/
 }
 
 
@@ -186,6 +186,8 @@ var interval;
 function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+"mins "+second+"secs";
+        document.getElementById("form_minute").value = minute;
+        document.getElementById("form_second").value = second;
         second++;
         if(second == 60){
             minute++;
@@ -198,30 +200,27 @@ function startTimer(){
     },1000);
 }
 
-
 // @description congratulations when all cards match, show modal and moves, time and rating
 function congratulations(){
-    if (matchedCard.length == 16){
+    if (matchedCard.length == 36){
         clearInterval(interval);
         finalTime = timer.innerHTML;
-
+        
         // show congratulations modal
         modal.classList.add("show");
 
         // declare star rating variable
-        var starRating = document.querySelector(".stars").innerHTML;
+        //var starRating = document.querySelector(".stars").innerHTML;
 
         //showing move, rating, time on modal
         document.getElementById("finalMove").innerHTML = moves;
-        document.getElementById("starRating").innerHTML = starRating;
+        //document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
-
+        document.getElementById("form_moves").value = moves;
         //closeicon on modal
         closeModal();
     };
 }
-
-
 // @description close icon on modal
 function closeModal(){
     closeicon.addEventListener("click", function(e){
@@ -229,15 +228,12 @@ function closeModal(){
         startGame();
     });
 }
-
-
+/*
 // @desciption for user to play Again 
 function playAgain(){
-    modal.classList.remove("show");
+    modal.classList.remove("show") ;
     startGame();
-}
-
-
+}*/
 // loop to add event listeners to each card
 for (var i = 0; i < cards.length; i++){
     card = cards[i];

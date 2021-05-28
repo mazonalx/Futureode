@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="alert alert-success alert-dismissible text-center">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<div class="R2">
+    <form action="" method="post">
+        <div class="container text-center">
+            <h1 class="pb-3" style="font-size:5vw">Step 5</h1>
+            <h3 class="pb-3" >Social Data</h3>
+        </div>
+        <div class="container">
+            <div>
+                <label for="satisfaction" class="form-label">1.On scale from 0 to 100 how satisfied are you with your progress</label><br>
+                <input type="range" name="satisfaction" min="0" max="100" onchange="updateTextInput(this.value);">
+                <input type="text" id="textInput" value="50" style="width:50px">
+            </div>
+            <div>
+                <p>2.Socio Economic factors</p>
+                <input type="radio" name="sef" value="0" onclick="removeRequired();" checked>  Personal choice<br>
+                <input type="radio" name="sef" value="1" onclick="removeRequired();">  Job security<br>
+                <input type="radio" name="sef" value="2" onclick="removeRequired();">  Family status<br>
+                <input type="radio" name="sef" value="3" onclick="setRequired();" id="other"> Other  
+                <input type="text" name="sef1" id="inputother" onclick="changeradioother()">
+            </div>
+            <div>
+                <p>3.Do you like to work as a team or go solo?</p>
+                <input type="radio" name="teamwork" value="0" checked/> TEAM <input type="radio" name="teamwork" value="1"/> SOLO  
+            </div>
+            <div>
+                <p>4.Do you have a competitive mindset?</p>
+                <input type="radio" name="competitive" value="0" checked/> YES <input type="radio" name="competitive" value="1"/> NO  
+            </div>
+            <div>
+                <p>5.Do you have leadership qualities</p>
+                <input type="radio" name="leadership" value="0" checked/> YES <input type="radio" name="leadership" value="1"/> NO  
+            </div>
+            <div>
+                <p>6.Do you think you could have a work-life balance</p>
+                <input type="radio" name="worklife" value="0" checked/> YES <input type="radio" name="worklife" value="1"/> NO  
+            </div>
+            <div>
+                <p>7.Have you received any certifications</p>
+                <input type="radio" name="certif" value="0" checked/> YES <input type="radio" name="certif" value="1"/> NO  
+            </div>
+            <div>
+                <p>8.Do you have an excellent self learning capability</p>
+                <input type="radio" name="selflearn" value="0" checked/> YES <input type="radio" name="selflearn" value="1"/> NO  
+            </div>
+        </div>
+        <div class="text-center">
+            <div class="form-group R21">    
+                <label for="ins">What was your most interesting subject?</label><br />
+                <input type="text" name="ins" id="ins" placeholder="Enter here.." required><br>
+            </div>
+            <div class="container">
+                <label for="inf">Choose a field you find interesting</label><br />
+                <select class="btn btn-warning" id="inf" name="inf" >
+                    <option>Business</option>
+                    <option>Designing</option>
+                    <option>Finance</option>
+                    <option>Marketing</option>
+                    <option>Technical</option>
+                </select>
+            </div>
+            <div class="my-5 text-center">
+                <input type="submit" value="Submit" class="btn btn-lg btn-dark">
+            </div>
+        </div> 
+    </form>
+</div>
+<script src={{url_for('static',filename='js/skill.js')}}></script>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/recommender.css') }}">
+{% endblock content %}
