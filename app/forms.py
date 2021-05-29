@@ -61,9 +61,9 @@ class DataForm(FlaskForm):#Step2
     submit = SubmitField('Submit')
 
 class SkillCertBookForm(FlaskForm):
-    skills = SelectMultipleField('Skills',[DataRequired()],choices=skillsc ,render_kw={'style': 'list-style: none;'})
+    skills = SelectMultipleField('Skills',choices=skillsc ,render_kw={'style': 'list-style: none;'})
     skill_oth = TextAreaField('Others')
-    certifications = SelectMultipleField('Certifications',[DataRequired()],choices=certificationsc ,render_kw={'style': 'list-style: none;'})
+    certifications = SelectMultipleField('Certifications',choices=certificationsc ,render_kw={'style': 'list-style: none;'})
     certifications_oth = TextAreaField('Others')
     aoe = SelectMultipleField('Area Of Interest',[DataRequired()], choices=aoec,render_kw={'style': 'list-style: none;'})
     aoe_oth = TextAreaField('Others')

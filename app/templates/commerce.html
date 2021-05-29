@@ -55,9 +55,9 @@
                     </div>
                 <div class="row no-gutters text-center">
                     <div class="col-md">
-                        {% if session.stream == 'Science' %}
+                        {% if session.interestedstream == 'Science' %}
                             <h6>PHYSICS</h6>
-                            {% elif session.stream == 'Commerce' %}
+                            {% elif session.interestedstream == 'Commerce' %}
                             <h6>ACCOUNTANCY</h6>
                             {% else %}
                             <h6>HISTORY</h6>
@@ -65,9 +65,9 @@
                         <p>{{ form.sub1(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                        {% if session.stream == 'Science' %}
+                        {% if session.interestedstream == 'Science' %}
                             <h6>CHEMISTRY</h6>
-                            {% elif session.stream == 'Commerce'%}
+                            {% elif session.interestedstream == 'Commerce'%}
                             <h6>BUSINESS STUDIES</h6>
                             {% else %}
                             <h6>ECONOMICS</h6>
@@ -75,9 +75,9 @@
                         <p>{{ form.sub2(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                    {% if  session.stream == 'Science' %}
+                    {% if  session.interestedstream == 'Science' %}
                         <h6>MATHS </h6>
-                        {% elif session.stream == 'Commerce'%}
+                        {% elif session.interestedstream == 'Commerce'%}
                         <h6>ECONOMICS</h6>
                         {% else %}
                         <h6>SOCIOLOGY</h6>
@@ -87,9 +87,9 @@
                 </div>
                 <div class="row no-gutters text-center">
                     <div class="col-md">
-                        {% if  session.stream == 'Science'%}
+                        {% if  session.interestedstream == 'Science'%}
                             <h6>BIOLOGY</h6>
-                            {% elif session.stream == 'Commerce' %}
+                            {% elif session.interestedstream == 'Commerce' %}
                             <h6>INFORMATION PRACTICES</h6>
                             {% else %}
                             <h6>GEOGRAPHY</h6>
@@ -97,9 +97,9 @@
                         <p>{{ form.sub4(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                        {% if  session.stream == 'Science'%}
+                        {% if  session.interestedstream == 'Science'%}
                             <h6>COMPUTER</h6>
-                            {% elif session.stream == 'Commerce' %}
+                            {% elif session.interestedstream == 'Commerce' %}
                             <h6>LEGAL STUDIES</h6>
                             {% else %}
                             <h6>POLITICAL SCIENCE</h6>

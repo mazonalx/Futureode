@@ -2,7 +2,7 @@ from app import app
 from flask import render_template,flash,redirect,url_for,request, session,jsonify
 from app.forms import FeedbackForm,DataForm,SkillCertBookForm,LoginForm
 from app.forms import grades,Streams
-from app.systems import Recommender,Sentiment
+from app.systems import Recommender1,Recommender2,Sentiment
 from app.books import Books
 import pickle
 import random
@@ -29,27 +29,32 @@ def explore():#Feedback
             session["stream"] = dict(Streams).get(form.stream.data)
             FeedQ1()
             s = Sentiment(m)
-        if s.SentimentAnalyzer() == "P":
-            del m
-            flash('Positive feedback')
-            session["interest"]=0
-            return redirect(url_for(form.stream.data))
-        else:
-            flash('Negative feedback')
-            session["interest"]=1
-            if(form.stream.data == 'science'):
-                return redirect(url_for('negative'))
-            elif(form.stream.data == 'commerce'):
-                return redirect(url_for('humanities'))
+            if s.SentimentAnalyzer() == "P":
+                del m
+                flash('Positive feedback')
+                session["interest"]=0
+                session["interestedstream"]=session["stream"]
+                return redirect(url_for(form.stream.data))
             else:
-                return redirect(url_for('humanities'))
+                flash('Negative feedback')
+                session["interest"]=1
+                if(form.stream.data == 'science'):
+                    return redirect(url_for('negative'))
+                elif(form.stream.data == 'commerce'):
+                    session["interestedstream"]='Commerce'
+                    return redirect(url_for('humanities'))
+                else:
+                    session["interestedstream"]='Humanities'
+                    return redirect(url_for('humanities'))
     return render_template('explore.html',title='Explore',form=form)
 @app.route('/negative',methods=['GET','POST'])
 def negative():
     if request.method == "POST":
         if(request.form.get('lstream') == 'commerce'):
+            session["interestedstream"]='Commerce'
             return redirect(url_for('commerce'))
         else:
+            session["interestedstream"]='Humanities'
             return redirect(url_for('humanities'))
     return render_template('negative.html',title='Negative Response')
 @app.route('/science',methods=['GET','POST'])
@@ -101,7 +106,7 @@ def social():
         scaling()
         session["intesub"] = request.form.get('ins')
         session["intefld"] = request.form.get('inf')
-        r = Recommender(session["intesub"])
+        r = Recommender2(session["intesub"])
         if(session["intefld"] == 'Business'):
             r.business()
         elif(session["intefld"] == 'Designing'):
@@ -116,7 +121,14 @@ def social():
     return render_template('social.html',title='Social')
 @app.route('/recommender',methods=['GET','POST'])
 def recommender():
-    return render_template('recommender.html',title='Recommender')
+    R = Recommender1(session["RData"])
+    if(session["interestedstream"]=='Science'):
+        R.ReadSfiles()
+    elif(session["interestedstream"]=='Commerce'):
+        R.ReadCfiles()
+    else:
+        RH = R.ReadHfiles()
+    return render_template('recommender.html',title='Recommender',RH=RH)
 @app.route("/logout")
 def logout():
     session["uname"] = None
@@ -234,13 +246,12 @@ def scaling():
     INPUT=[[session["iqscore"],S[0],S[1],S[2],S[3],S[4],S[5],session["pqscore"][0],session["pqscore"][1],session["pqscore"][2],session["pqscore"][3],session["pqscore"][4],session["interest"],session["satisfaction"],session["sef"],session["mscore"],session["teamwork"],session["competitive"],session["leadership"],session["worklife"],session["certif"],session["selflearn"]]]
     prediction(INPUT)
 def prediction(INPUT):
-    if(session["stream"]=='Science'):
+    if(session["interestedstream"]=='Science'):
         pickle_in = open('app/models/science_model.pkl', 'rb')
-    elif(session["stream"]=='Commerce'):
+    elif(session["interestedstream"]=='Commerce'):
         pickle_in = open('app/models/commerce_model.pkl', 'rb')
     else:
         pickle_in = open('app/models/humanities_model.pkl', 'rb')
     classifier = pickle.load(pickle_in)
     prediction = classifier.predict(INPUT)
-    #return prediction
-    print(prediction)
+    session["prediction"]=prediction

@@ -11,7 +11,7 @@
     {% endif %}
 {% endwith %}
 <div class="R2">
-    <form action="" method="post">
+    <form action="" method="post" id="myform">
         <div class="container text-center">
             <h1 class="pb-3" style="font-size:5vw">Step 5</h1>
             <h3 class="pb-3" >Social Data</h3>
@@ -71,11 +71,12 @@
                 </select>
             </div>
             <div class="my-5 text-center">
-                <input type="submit" value="Submit" class="btn btn-lg btn-dark">
+                <button type="submit" class="btn btn-danger btn-lg loading buttonload" id="load" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>Processing...">Submit</button>
             </div>
         </div> 
     </form>
 </div>
 <script src={{url_for('static',filename='js/skill.js')}}></script>
 <link rel="stylesheet" href="{{ url_for('static',filename='css/recommender.css') }}">
+
 {% endblock content %}
