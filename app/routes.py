@@ -1,12 +1,12 @@
+from typing import Final
 from app import app
 from flask import render_template,flash,redirect,url_for,request, session,jsonify
-from app.forms import FeedbackForm,DataForm,SkillCertBookForm,LoginForm
+from app.forms import FeedbackForm,DataForm,LoginForm
 from app.forms import grades,Streams
 from app.systems import Recommender1,Recommender2,Sentiment
 from app.books import Books
 import pickle
 import random
-import itertools
 @app.route('/')
 @app.route('/index')
 def index():
@@ -27,7 +27,7 @@ def explore():#Feedback
     if form.validate_on_submit():
         if request.method == "POST":
             session["stream"] = dict(Streams).get(form.stream.data)
-            FeedQ1()
+            FeedQ()
             s = Sentiment(m)
             if s.SentimentAnalyzer() == "P":
                 del m
@@ -36,7 +36,7 @@ def explore():#Feedback
                 session["interestedstream"]=session["stream"]
                 return redirect(url_for(form.stream.data))
             else:
-                flash('Negative feedback')
+                flash('Negative feedback') 
                 session["interest"]=1
                 if(form.stream.data == 'science'):
                     return redirect(url_for('negative'))
@@ -50,7 +50,10 @@ def explore():#Feedback
 @app.route('/negative',methods=['GET','POST'])
 def negative():
     if request.method == "POST":
-        if(request.form.get('lstream') == 'commerce'):
+        if(request.form.get('lstream') == 'science'):
+            session["interestedstream"]='Science'
+            return redirect(url_for('science'))
+        elif(request.form.get('lstream') == 'commerce'):
             session["interestedstream"]='Commerce'
             return redirect(url_for('commerce'))
         else:
@@ -83,52 +86,66 @@ def humanities():
     return render_template('humanities.html',title='Humanities',form=form)
 @app.route('/skillcert',methods=['GET','POST'])
 def skillcert():
-    form = SkillCertBookForm()
     B = Books
     S1 = B.RetSBooks()
     C1 = B.RetCBooks()
     H1 = B.RetHBooks()
-    if form.validate_on_submit():
-        SCB(form)
+    AOE=['Teaching','Photo and video editing','Photography','Dance or music','Acting or drama','Coding and programming','Blogging and content creation',
+    'Computer Graphics','Writing or reading','Robotics','Flying','Content Writer','investigation','Ethical Hacking','Interior Designs','Makeup','Modelling',
+    'Fitness','Youtube','Real Estate','Stock Market','Travelling','Event Planning']
+    AOE.sort()
+    if request.method == 'POST':
+        SCB()
+        if(session["R2T"]):
+            r = Recommender2(session["R2T"])
+            r.technical()
+        if(session["R2M"]):
+            r = Recommender2(session["R2M"])
+            r.marketing()
+        if(session["R2D"]):
+            r = Recommender2(session["R2D"])
+            r.design()
+        if(session["R2B"]):
+            r = Recommender2(session["R2B"])
+            r.business()
+        if(session["R2F"]):
+            r = Recommender2(session["R2F"])
+            r.finance()
         return redirect(url_for('social'))
-    return render_template('skillcert.html',form=form,title='Skills and Certifications',S1=S1,C1=C1,H1=H1)
+    return render_template('skillcert.html',title='Skills and Certifications',S1=S1,C1=C1,H1=H1,AOE=AOE)
 @app.route('/social', methods=['GET','POST'])
 def social():
-    if request.method == "POST":
-        session["satisfaction"] = int(request.form.get('satisfaction'))
+    if request.method == "POST": 
         SEF()
         session["teamwork"] = int(request.form.get('teamwork'))
         session["competitive"] = int(request.form.get('competitive'))
         session["leadership"] = int(request.form.get('leadership'))
         session["worklife"] = int(request.form.get('worklife'))
-        session["certif"] = int(request.form.get('certif'))
         session["selflearn"] = int(request.form.get('selflearn'))
         scaling()
-        session["intesub"] = request.form.get('ins')
-        session["intefld"] = request.form.get('inf')
-        r = Recommender2(session["intesub"])
-        if(session["intefld"] == 'Business'):
-            r.business()
-        elif(session["intefld"] == 'Designing'):
-            r.design()
-        elif(session["intefld"] == 'Finance'):
-            r.finance()
-        elif(session["intefld"] == 'Marketing'):
-            r.marketing()
-        else:
-            r.technical()
         return redirect(url_for('recommender'))
     return render_template('social.html',title='Social')
-@app.route('/recommender',methods=['GET','POST'])
+@app.route('/recommender',methods=['GET'])
 def recommender():
     R = Recommender1(session["RData"])
     if(session["interestedstream"]=='Science'):
-        R.ReadSfiles()
+        if(session["prediction"]==[0]):
+            FINAL = R.ReadS1files()
+        elif(session["prediction"]==[1]):
+            FINAL = R.ReadS2files()
+        else:
+            FINAL = R.ReadSpecialfiles()
     elif(session["interestedstream"]=='Commerce'):
-        R.ReadCfiles()
+        if(session["prediction"]==[0] or session["prediction"]==[1]):
+            FINAL = R.ReadCfiles()
+        else:
+            FINAL = R.ReadSpecialfiles()
     else:
-        RH = R.ReadHfiles()
-    return render_template('recommender.html',title='Recommender',RH=RH)
+        if(session["prediction"]==[0] or session["prediction"]==[1]):
+            FINAL = R.ReadHfiles()
+        else:
+            FINAL = R.ReadSpecialfiles()
+    return render_template('recommender.html',title='Recommender',FINAL=FINAL)
 @app.route("/logout")
 def logout():
     session["uname"] = None
@@ -145,9 +162,9 @@ def IQ():
     session["iqscore"] = (140*correct)//10 # IQ score
 def MeM():
     session["moves"] = int(request.form.get('moves'))
-    if(session["moves"] > 69):
+    if(session["moves"] > 20):
         session["mscore"]= 0
-    elif(session["moves"]>= 45 and session["moves"]<= 69):
+    elif(session["moves"]>= 14 and session["moves"]<= 17):
         session["mscore"] = 1
     else:
         session["mscore"] = 2
@@ -155,7 +172,7 @@ def PQ():
     pqlist=[]
     for i in ['pq1','pq2','pq3','pq4','pq5']:
         pqlist.append(int((len(session[i])/5)*100))
-    session["pqscore"]=pqlist#Personality Score
+    session["pqscore"]=pqlist
 def Test(form):
     Dg= dict(grades)
     session["sub1"] = Dg.get(form.sub1.data)
@@ -170,13 +187,25 @@ def Test(form):
     for x in PQlist:
         session[x] = request.form.getlist(x)
     PQ()
-def SCB(form):
-    session["skills"]=form.skills.data
-    session["skills_oth"]=form.skill_oth.data
-    session["certifications"]=form.certifications.data
-    session["certifications_oth"]=form.certifications_oth.data
-    session["aoe"]=form.aoe.data
-    session["aoe_oth"]=form.aoe_oth.data   
+def SCB():
+    session["Tskills"] = request.form.getlist('Tskills')
+    session["Mskills"] = request.form.getlist('Mskills')
+    session["Dskills"] = request.form.getlist('Dskills')
+    session["Bskills"] = request.form.getlist('Bskills')
+    session["Fskills"] = request.form.getlist('Fskills')
+    session["oTskills"]=request.form.get('oTskills')
+    session["oMskills"]=request.form.get('oMskills')
+    session["oDskills"]=request.form.get('oDskills')
+    session["oFskills"]=request.form.get('oFskills')
+    session["oBskills"]=request.form.get('oBskills')
+    session["certifications"]=request.form.get('certifications')
+    if(session["certifications"]):
+        session["certif"]=1
+    else:
+        session["certif"]=0#confirm this
+    print("Certification",session["certif"])
+    session["aoe"]=request.form.getlist('aoe')
+    session["oaoe"]=request.form.get('oaoe')  
     Sciencebooklist = []
     Commercebooklist = []
     Humanitiesbooklist = []
@@ -189,11 +218,10 @@ def SCB(form):
             Commercebooklist.append("c{}{}".format(i,j))
     for i in range(1,8):
         for j in range(1,3):
-            Commercebooklist.append("c{}{}".format(i,j))
+            Humanitiesbooklist.append("c{}{}".format(i,j))
     for i in Sciencebooklist:
         if(request.form.get(i)):
             R1+=request.form.get(i)+" "
-    R1+=" "
     for j in Commercebooklist:
         if(request.form.get(j)):
             R1+=request.form.get(j)+" "
@@ -201,24 +229,39 @@ def SCB(form):
         if(request.form.get(k)):
             R1+=request.form.get(k)+" "
     R2=""
-    C = session["skills"]+session["certifications"]+session["aoe"]
-    for i in C:
-        R2+=i+" "
-    R2+=session["skills_oth"]+" "+session["certifications_oth"]+" "+session["aoe_oth"]
+    AoE=""
+    AoE= ' '.join(str(e) for e in session["aoe"])
+    R2T = ' '.join(str(e) for e in session["Tskills"])
+    R2T+=" "+session["oTskills"]
+    session["R2T"]=R2T+AoE
+    R2M = ' '.join(str(e) for e in session["Mskills"])
+    R2M+=" "+session["oMskills"]
+    session["R2M"]=R2M+AoE
+    R2D = ' '.join(str(e) for e in session["Dskills"])
+    R2D+=" "+session["oDskills"]
+    session["R2D"]=R2D+AoE
+    R2B = ' '.join(str(e) for e in session["Bskills"])
+    R2B+=" "+session["oBskills"]
+    session["R2B"]=R2B+AoE
+    R2F = ' '.join(str(e) for e in session["Fskills"])
+    R2F+=" "+session["oFskills"]
+    session["R2F"]=R2F+AoE
+    R2+=" "+R2T+R2M+R2D+R2B+R2F
+    R2+=" "+session["oaoe"]
+    R2+=" "+AoE
     session["RData"]=R1+R2
-def FeedQ2(x,y):
+def FeedQ():
     global m
-    if(request.form.get(x) == 'Other'):
-        m+=request.form.get(y)
-    elif(request.form.get(y)):
-        m+=request.form.get(y)
-    else:
-        m+=request.form.get(x)
-def FeedQ1():
-    L4 =('q1','q2','q3','q4','q5','q6','q7','q8')
-    L5 =('q11','q22','q33','q44','q55','q66','q77','q88')
-    for i,j in zip(L4,L5):
-        FeedQ2(i,j)
+    p=0
+    n=0
+    L4 =('q1','q2','q3','q4','q5','q6','q7')
+    for i in L4:
+        if(int(request.form.get(i))==0 or int(request.form.get(i))==2):
+            p+=1
+        else:
+            n+=1
+    m=request.form.get("q8")
+    session["satisfaction"]=(p*100)//7
 def SEF():
     if(request.form.get('sef') == 'Other'):
         session["sef"] = int(request.form.get('sef1'))
@@ -255,3 +298,4 @@ def prediction(INPUT):
     classifier = pickle.load(pickle_in)
     prediction = classifier.predict(INPUT)
     session["prediction"]=prediction
+    print(session["prediction"])

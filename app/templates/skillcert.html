@@ -10,65 +10,95 @@
         </ul>
     {% endif %}
 {% endwith %}
-<div class="s4">
-    <div class="container-fluid text-center skchead py-5">
-        <h1 class="pb-3" style="font-size:5vw">Step 4</h1>
-        <h3 class="pb-3" >Skills Certifications & Books</h3>
-        <p>(Select multiple options by dragging or clicking while holding down ctrl)</p>
-    </div>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <div class="container-fluid text-center s41">
-            <div class="row">
-                <div class="col">
-                    <div>
-                        <div>
-                            {{ form.skills.label(id="sklabel") }}
-                        </div>
-                        <div>
-                            {{ form.skills(class="sk") }}
-                            <div>
-                            {% for error in form.skills.errors %}
-                                <span style="color: red;">{{ error }}</span>
-                            {% endfor %}
-                            </div>
-                            <div>{{ form.skill_oth.label }}</div>
-                            <div>{{ form.skill_oth(id="sko") }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        {{ form.certifications.label(id="sklabel") }}
-                    </div>
-                    <div>
-                        {{ form.certifications(class="sk") }}
-                        <div>
-                        {% for error in form.certifications.errors %}
-                            <span style="color: red;">{{ error }}</span>
-                        {% endfor %}
-                        </div>
-                        <div>{{ form.certifications_oth.label }}</div>
-                        <div>{{ form.certifications_oth(id="sko") }}</div>
-                    </div>
-                </div>
-                <div class="col text-center">
-                    <div>
-                        {{ form.aoe.label(id="sklabel") }}
-                    </div>
-                    <div>
-                        {{ form.aoe(class="sk") }}
-                        <div>
-                        {% for error in form.aoe.errors %}
-                            <span style="color: red;">{{ error }}</span>
-                        {% endfor %}
-                        </div>
-                        <div>{{ form.aoe_oth.label }}</div>
-                        <div>{{ form.aoe_oth(id="sko") }}</div>
-                    </div>
-                </div>
+<div class="container-fluid text-center skchead py-5">
+    <h1 class="pb-3" style="font-size:5vw">Step 4</h1>
+    <h3 class="pb-3" >Skills Certifications & Books</h3>
+    <form action="" method="post" >
+        <div class="row">
+            <div class="col">
+                <label style="font-weight: bold">Technical skills</label><br>
+                <select class="selectpicker" multiple data-live-search="true" name="Tskills" >
+                    <option >C</option>
+                    <option >Cpp</option>
+                    <option >Java</option>
+                    <option >Python</option>
+                    <option >Networking</option>
+                    <option >Database</option>
+                    <option >Web Development</option>
+                    <option >Selenium</option>
+                    <option >App Development</option>
+                    <option >Ethical Hacking</option>
+                    <option >Penetration Testing</option>
+                    <option >Matlab</option>
+                </select>
+                <textarea class="form-control-sm" placeholder="Others" name="oTskills" rows="1" style="resize: none;"></textarea>
             </div>
-        </div>  
+            <div class="col">
+                <label style="font-weight: bold">Marketing skills</label><br>
+                <select class="selectpicker" multiple data-live-search="true" name="Mskills" >
+                    <option >Digital_Marketing</option>
+                    <option >Instagram Marketing</option>
+                    <option >Content Marketing</option>
+                    <option >SEO</option>
+                    <option >You Tube Marketing</option>
+                    <option >Email Marketing</option>
+                </select>
+                <textarea class="form-control-sm" placeholder="Others" name="oMskills" rows="1" style="resize: none;"></textarea>
+            </div>
+            <div class="col">
+                <label style="font-weight: bold">Design skills</label><br>
+                <select class="selectpicker" multiple data-live-search="true" name="Dskills" >
+                    <option >AutoCad</option>
+                    <option >Graphic Design</option>
+                    <option >Adobe Photoshop</option>
+                    <option >Web Design</option>
+                    <option >Word Press</option>
+                </select>
+                <textarea class="form-control-sm" placeholder="Others" name="oDskills" rows="1" style="resize: none;"></textarea>
+            </div>
+            <div class="col">
+                <label style="font-weight: bold">Business skills</label><br>
+                <select class="selectpicker" multiple data-live-search="true" name="Bskills" >
+                    <option >Financial management</option>
+                    <option >Communication and negotiation</option>
+                    <option >Leadership</option>
+                    <option >Project management and planning</option>
+                    <option >Problem solving</option>
+                    <option >Financial Accounting</option>
+                    <option >Decision-Making</option>
+                </select>
+                <textarea class="form-control-sm" placeholder="Others" name="oBskills" rows="1" style="resize: none;"></textarea>
+            </div>
+            <div class="col">
+                <label style="font-weight: bold">Finance skills</label><br>
+                <select class="selectpicker" multiple data-live-search="true" name="Fskills" >
+                    <option >Analytical thinking</option>
+                    <option >Verbal communication</option>
+                    <option >Persuasiveness</option>
+                    <option >Budgeting</option>
+                    <option >Risk analysis</option>
+                    <option >Financial planning</option>
+                    <option >Detail-oriented</option>
+                </select>
+                <textarea class="form-control-sm" placeholder="Others" name="oFskills" rows="1" style="resize: none;"></textarea>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col mt-1">
+                <label style="font-weight: bold">Certifications</label><br>
+                <textarea class="form-control-lg"  name="certifications" rows="2" style="resize: none;"></textarea>
+            </div>
+            <div class="col">
+                <label style="font-weight: bold">Area of interest</label><br>
+                <select class="selectpicker" data-size="8" multiple data-live-search="true" name="aoe" >
+                {% for i in AOE %}
+                    <option >{{i}}</option>
+                {% endfor %}
+                </select><br>
+                <textarea class="form-control-sm" placeholder="Others" name="oaoe" rows="1" style="resize: none;"></textarea>
+            </div> 
+        </div>
+</div>
         <div class="container-fluid">
             <div class="text-center">
                 <h3>Take a look at these books</h3>
@@ -76,17 +106,33 @@
             </div>
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#Science">Science</a>
+                {% if session["interestedstream"] == "Science" %}
+                    <a class="nav-link active" data-toggle="tab" href="#Science">Science</a>
+                {% else %}    
+                    <a class="nav-link disabled" data-toggle="tab" href="#Science">Science</a>
+                {% endif %}
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Commerce">Commerce</a>
+                {% if session["interestedstream"] == "Commerce" %}
+                <a class="nav-link active" data-toggle="tab" href="#Commerce">Commerce</a>
+                {% else %}
+                <a class="nav-link disabled" data-toggle="tab" href="#Commerce">Commerce</a>
+                {% endif %}
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#Humanities">Humanities</a>
+                 {% if session["interestedstream"] == "Humanities" %}
+                <a class="nav-link active" data-toggle="tab" href="#Humanities">Humanities</a>
+                {% else %}
+                <a class="nav-link disabled" data-toggle="tab" href="#Humanities">Humanities</a>
+                {% endif %}
                 </li>
             </ul>
             <div class="tab-content">
+                {% if session["interestedstream"] == "Science" %}
                 <div class="container-fluid tab-pane active" id="Science">
+                {% else %}
+                <div class="container-fluid tab-pane fade" id="Science">
+                {% endif %}
                     <div class="card-deck">
                         <div class="card mb-4">
                             <div class="card-header text-center">
@@ -269,7 +315,11 @@
                         </div>
                     </div>
                 </div>
+                {% if session["interestedstream"] =='Commerce' %}
+                <div class="container-fluid tab-pane active" id="Commerce">
+                {% else %}
                 <div class="container-fluid tab-pane fade" id="Commerce">
+                {% endif %}
                     <div class="card-deck">
                         <div class="card mb-4">
                             <div class="card-header text-center">
@@ -384,7 +434,11 @@
                         </div>
                     </div>
                 </div>
+                {% if session["interestedstream"] =='Humanities'%}
+                <div class="container-fluid tab-pane active" id="Humanities">
+                {% else %}
                 <div class="container-fluid tab-pane fade" id="Humanities">
+                {% endif %}
                     <div class="card-deck">
                         <div class="card mb-4">
                             <div class="card-header text-center">
@@ -489,10 +543,10 @@
             </div>
         </div>
         <div class="text-center">
-            {{ form.submit(class='btn btn-dark mb-3',id="s4submit")}}
+            <button type="submit" class="btn btn-dark mb-3" id="s4submit">Submit</button>
         </div>
     </form>
-</div>
 <link rel="stylesheet" href="{{ url_for('static',filename='css/skill.css') }}">
 <script src="{{ url_for('static',filename='js/skill.js') }}"></script>
+
 {% endblock content %}

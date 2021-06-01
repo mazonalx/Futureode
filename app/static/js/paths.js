@@ -202,7 +202,7 @@ function startTimer(){
 
 // @description congratulations when all cards match, show modal and moves, time and rating
 function congratulations(){
-    if (matchedCard.length == 36){
+    if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
         
@@ -225,6 +225,7 @@ function congratulations(){
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
+        document.getElementById("submitfinal").focus();
         startGame();
     });
 }
@@ -241,3 +242,4 @@ for (var i = 0; i < cards.length; i++){
     card.addEventListener("click", cardOpen);
     card.addEventListener("click",congratulations);
 };
+$('.selectpicker').selectpicker();

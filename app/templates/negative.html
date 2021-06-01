@@ -10,37 +10,41 @@
             </ul>
         {% endif %}
 {% endwith %}
-    <div class="s1" style="height: 60%">
+<div class="B">
+    <div class="container text-center">
         <div class="content1 text-center pt-5">
-            <h1 class="pb-3" style="font-size:5vw">Negative Feedback</h1>
+            <h1 class="pb-3" style="font-size:5vw">Negative Feedback <span><img src="{{url_for('static',filename='images/thumbdown.png')}}" id="thdw" alt=""></span></h1>
             <p>Upon Analysis your feedback is negative</p>
-            <p>Please select another stream you wish to explore</p>
+            <p>Do you wish to continue with the same or explore another</p>
         </div>
-        <div class="container text-center"> 
-            <form action="" method="post" style="text-align:center;display:inline">
+    </div>
+    <div class="container-fluid">
+        <form action="" method="post" style="text-align:center;display:inline">
             <div class="row">  
-            <div class="col">  
-                <div class="container B">
-                <input type="radio" name="lstream" value="commerce" id="lstream" required>
-                    <label for="commerce">
-                        COMMERCE STREAM
+                <div class="col">  
+                    <label>
+                        <input type="radio"  name="lstream" value="science" id="lstream" checked> 
+                        <img src="{{ url_for('static',filename='images/Science.webp')}}" class="rounded responsive" alt="Science Stream">
                     </label>
-                </div><br>
-            </div>
-            <div class="col">
-                <div class="container B">
-                <input type="radio" name="lstream" value="humanities" id="lstream" required>
-                    <label for="humanities">
-                        HUMANITIES STREAM
+                </div>
+                <div class="col">  
+                    <label>
+                        <input type="radio"  name="lstream" value="commerce" id="lstream" >
+                        <img src="{{ url_for('static',filename='images/Commerce.jpg')}}" class="rounded responsive" alt="Commerce Stream">
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        <input type="radio"  name="lstream" value="humanities" id="lstream" >
+                        <img src="{{ url_for('static',filename='images/Humanities.png')}}" class="rounded responsive" alt="Humanitites Stream">
                     </label>
                 </div>
             </div>
+            <div class="my-5">
+                <button type="submit" name="submit" value="submit" class="btn btn-dark btn-lg">Submit</button>
             </div>
-                <div>
-                    <button type="submit" name="submit" value="submit" class="btn btn-info btn-lg">Submit</button>
-                </div>
-            </form> 
-        </div>  
+        </form>  
     </div>  
-
+</div>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/negative.css') }}">
 {% endblock %}

@@ -19,10 +19,4 @@ if(document.getElementById("inputother").required == true){
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();   
   });
-$('.loading').on('click',function(){
-	var $btn = $(this);
-		$btn.button('loading');
-		setTimeout(function(){
-   		$btn.button('reset');
-	},2000);
-});
+$('select').selectpicker();

@@ -1,9 +1,9 @@
 .skchead h1{font-family: 'Times New Roman', Times, serif;}
 .skchead h3{font-family: 'Times New Roman', Times, serif;}
-.skchead{background-color:#7FDBFF;}
+.skchead{background-color:#ced3d4;}
 #s4submit {background-color:#000000;color: rgb(247, 243, 243);}
-.s41{background-color: #7FDBFF;min-height:300px;}
-.s42{height: 200px;}
+.s41{background-color: #7FDBFF;}
+.s41 label {font-weight: bold;}
 .card:hover{
      transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -11,7 +11,7 @@
 #sklabel{font-family: 'Times New Roman', Times, serif;font-size: 30px;font-weight: bold
 }
 #sko{height:40px;resize:none;border:1px solid black;background-color:#7FDBFF }
-.sk{border:2px solid black;background-color:#7FDBFF }
+.sk{border:1px solid rgb(255, 255, 255);background-color:#ffffff;}
 #ctit{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 19px;font-weight: bold;

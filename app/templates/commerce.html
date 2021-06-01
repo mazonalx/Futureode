@@ -51,13 +51,13 @@
                 </div> 
                     <div class="text-center">
                     <h2>Select your class XII Grades</h2>
-                    <p>Pick grade D if not applicable</p>
+                    <p>Pick grade X if not applicable</p>
                     </div>
                 <div class="row no-gutters text-center">
                     <div class="col-md">
-                        {% if session.interestedstream == 'Science' %}
+                        {% if session.stream == 'Science' %}
                             <h6>PHYSICS</h6>
-                            {% elif session.interestedstream == 'Commerce' %}
+                            {% elif session.stream == 'Commerce' %}
                             <h6>ACCOUNTANCY</h6>
                             {% else %}
                             <h6>HISTORY</h6>
@@ -65,9 +65,9 @@
                         <p>{{ form.sub1(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                        {% if session.interestedstream == 'Science' %}
+                        {% if session.stream == 'Science' %}
                             <h6>CHEMISTRY</h6>
-                            {% elif session.interestedstream == 'Commerce'%}
+                            {% elif session.stream == 'Commerce'%}
                             <h6>BUSINESS STUDIES</h6>
                             {% else %}
                             <h6>ECONOMICS</h6>
@@ -75,9 +75,9 @@
                         <p>{{ form.sub2(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                    {% if  session.interestedstream == 'Science' %}
+                    {% if  session.stream == 'Science' %}
                         <h6>MATHS </h6>
-                        {% elif session.interestedstream == 'Commerce'%}
+                        {% elif session.stream == 'Commerce'%}
                         <h6>ECONOMICS</h6>
                         {% else %}
                         <h6>SOCIOLOGY</h6>
@@ -87,9 +87,9 @@
                 </div>
                 <div class="row no-gutters text-center">
                     <div class="col-md">
-                        {% if  session.interestedstream == 'Science'%}
+                        {% if  session.stream == 'Science'%}
                             <h6>BIOLOGY</h6>
-                            {% elif session.interestedstream == 'Commerce' %}
+                            {% elif session.stream == 'Commerce' %}
                             <h6>INFORMATION PRACTICES</h6>
                             {% else %}
                             <h6>GEOGRAPHY</h6>
@@ -97,9 +97,9 @@
                         <p>{{ form.sub4(id="sub") }}</p> 
                     </div>
                     <div class="col-md">
-                        {% if  session.interestedstream == 'Science'%}
+                        {% if  session.stream == 'Science'%}
                             <h6>COMPUTER</h6>
-                            {% elif session.interestedstream == 'Commerce' %}
+                            {% elif session.stream == 'Commerce' %}
                             <h6>LEGAL STUDIES</h6>
                             {% else %}
                             <h6>POLITICAL SCIENCE</h6>
@@ -265,7 +265,7 @@
                 <div><!--iq8-->
                     <h5>8. Which is the missing section?</h5>
                 </div>
-                <div class="row text-center">
+                <div class="row">
                     <div class="col-md">
                         {{ form.iq8(id="iq8",style="list-style:none") }}
                         {{ form.iq8.label(id="iq8label") }}
@@ -282,10 +282,11 @@
                         {% endfor %}
                     </div>
                 </div>
+                <div>
+                <h5>9. Which does not belong in this sequence ?</h5>
                 <div class="row mt-3"><!--iq9-->
                     <div class="col-md">
-                        <h5>9. Which does not belong in this sequence ?</h5>
-                        {{ form.iq9(id="iq9",style="list-style:none") }}
+                        {{ form.iq9(id="iq9",style="list-style:none;display:inline-;") }}
                         {{ form.iq9.label(id="iq9label") }}
                     </div>
                     <div class="col-md">
@@ -296,6 +297,7 @@
                             <span style="color: red;">[{{ error }}]</span>
                         {% endfor %}
                     </div>
+                </div>
                 </div>
                 <div><!--iq10-->
                     <h5>10.What number should replace the question mark?</h5>
@@ -327,65 +329,53 @@
                 <div class="text-center" id="gradehead">
                     <h2>Personality Questionnaire</h2>
                     <p>This section deals with your emotional intelligence.</p>
-                    <p style="font-size:15px">(Drag or hold ctrl and click to select multiple options)</p>
-                </div>
-                <!--Personality Questionnaire -->
-                <div class="row text-center">
-                    <div class="col-md">
-                        <h5>1.Do you experience any of the below?</h5>
-                        {{ form.pq1.label(id="pqlabel") }}
-                        {{ form.pq1(id="pqbox") }}
-                        <div class="ml-5">
-                        {% for error in form.pq1.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                    <div class="row mb-2">  <!--Personality Questionnaire -->
+                        <div class="col mb-2">  
+                        <select class="selectpicker" data-selected-text-format="count" data-width="75%" data-style="btn-dark" multiple  title="Do you experience any of the below?" name="pq1" required>
+                            <option >I enjoy being the center of attention</option>
+                            <option >I feel comfortable around people</option>
+                            <option >I take time out for others</option>
+                            <option >I usually feel other's emotions</option>
+                            <option >I believe others have good intentions</option>
+                        </select>
+                        </div>
+                        <div class="col mb-2">
+                        <select class="selectpicker" data-selected-text-format="count" data-width="75%" data-style="btn-dark" multiple title="Do you experience any of the below?" name="pq2" required>
+                            <option >I am concerned about how others feel</option>
+                            <option >I am considered kind and soft hearted</option>
+                            <option >I can easily start conversations</option>
+                            <option >I'm skilled in handling social situations</option>
+                            <option >I sometimes speak without previous thinking</option>
+                        </select>
                         </div>
                     </div>
-                    
-                    <div class="col-md">
-                        <h5>2.Do you experience any of the below?</h5>
-                        {{ form.pq2.label(id="pqlabel") }}
-                        {{ form.pq2(id="pqbox") }}
-                        <div class="ml-5">
-                        {% for error in form.pq2.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
+                    <div class="row mb-2">
+                        <div class="col mb-2">
+                        <select class="selectpicker" data-selected-text-format="count" data-width="75%" data-style="btn-dark" multiple title="Do you experience any of the below?" name="pq3" required>
+                            <option >I pay attention to details</option>
+                            <option >I like keeping everything organized</option>
+                            <option >I never leave my belongings around</option>
+                            <option >I am always prepared</option>
+                            <option >I am more analytical than creative</option>
+                        </select>
+                        </div>
+                        <div class="col mb-2">
+                        <select class="selectpicker" data-selected-text-format="count" data-width="75%" data-style="btn-dark" multiple title="Do you experience any of the below?" name="pq4" required>
+                            <option >I consider myself very creative</option>
+                            <option >I enjoy time spent in the nature</option>
+                            <option >I consider I have excellent ideas</option>
+                            <option >I believe in the importance of art</option>
+                            <option >I am quick to understand most things</option>
+                        </select>
                         </div>
                     </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md">
-                        <h5>3.Do you experience any of the below?</h5>
-                        {{ form.pq3.label(id="pqlabel") }}
-                        {{ form.pq3(id="pqbox") }}
-                        <div class="ml-5">
-                        {% for error in form.pq3.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                        </div>
-                    </div>
-                    <div class="col-md">
-                        <h5>4.Do you experience any of the below?</h5>
-                        {{ form.pq4.label(id="pqlabel") }}
-                        {{ form.pq4(id="pqbox") }}
-                        <div class="ml-5">
-                        {% for error in form.pq4.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="row text-center">
-                    <div class="col-md ">
-                        <h5>5.Do you experience any of the below?</h5>
-                        {{ form.pq5.label(id="pqlabel") }}
-                        {{ form.pq5(id="pqbox") }}
-                        <div class="ml-5">
-                        {% for error in form.pq5.errors %}
-                            <span style="color: red;">[{{ error }}]</span>
-                        {% endfor %}
-                        </div>
-                    </div>
+                        <select class="selectpicker" data-selected-text-format="count" data-width="70%" data-style="btn-dark" multiple title="Do you experience any of the below?"  name="pq5" required>
+                            <option >I get irritated easily</option>
+                            <option >I am hardly able to relax</option>
+                            <option >I get upset frequently</option>
+                            <option >I am affected by disappointments in life</option>
+                            <option >I feel stressed out most time</option>
+                        </select>
                 </div>
             </div>
             <input type="hidden" required="required" name="moves" id="form_moves">  
@@ -411,23 +401,8 @@
                         <li class="card" type="car">
                             <i class="fa fa-car"></i>
                         </li>
-                        <li class="card" type="diamond">
-                            <i class="fa fa-diamond"></i>
-                        </li>
-                        <li class="card" type="bitcoin">
-                            <i class="fa fa-bitcoin"></i>
-                        </li>
-                        <li class="card" type="plane">
-                            <i class="fa fa-paper-plane-o"></i>
-                        </li>
                         <li class="card" type="horn">
                             <i class="fa fa-bullhorn"></i>
-                        </li>
-                        <li class="card" type="cake">
-                            <i class="fa fa-birthday-cake"></i>
-                        </li>
-                        <li class="card match" type="anchor">
-                            <i class="fa fa-anchor"></i>
                         </li>
                         <li class="card" type="bolt" >
                             <i class="fa fa-bolt"></i>
@@ -435,23 +410,8 @@
                         <li class="card" type="cube">
                             <i class="fa fa-cube"></i>
                         </li>
-                        <li class="card match" type="anchor">
-                            <i class="fa fa-anchor"></i>
-                        </li>
-                        <li class="card" type="leaf">
-                            <i class="fa fa-leaf"></i>
-                        </li>
-                        <li class="card" type="bicycle">
-                            <i class="fa fa-bicycle"></i>
-                        </li>
-                        <li class="card" type="diamond">
-                            <i class="fa fa-diamond"></i>
-                        </li>
                         <li class="card" type="bomb">
                             <i class="fa fa-bomb"></i>
-                        </li>
-                        <li class="card" type="leaf">
-                            <i class="fa fa-leaf"></i>
                         </li>
                         <li class="card" type="rocket">
                             <i class="fa fa-rocket"></i>
@@ -465,29 +425,11 @@
                         <li class="card open show" type="bolt">
                             <i class="fa fa-bolt"></i>
                         </li>
-                        <li class="card" type="bell">
-                            <i class="fa fa-bell"></i>
-                        </li>
-                        <li class="card" type="bicycle">
-                            <i class="fa fa-bicycle"></i>
-                        </li>
-                        <li class="card" type="plane">
-                            <i class="fa fa-paper-plane-o"></i>
-                        </li>
                         <li class="card" type="cube">
                             <i class="fa fa-cube"></i>
                         </li>
                         <li class="card" type="calculator">
                             <i class="fa fa-calculator"></i>
-                        </li>
-                        <li class="card" type="apple">
-                            <i class="fa fa-apple"></i>
-                        </li>
-                        <li class="card" type="bitcoin">
-                            <i class="fa fa-bitcoin"></i>
-                        </li>
-                        <li class="card" type="asterisk">
-                            <i class="fa fa-asterisk"></i>
                         </li>
                         <li class="card" type="car">
                             <i class="fa fa-car"></i>
@@ -495,32 +437,20 @@
                         <li class="card" type="rocket">
                             <i class="fa fa-rocket"></i>
                         </li>
-                        <li class="card" type="bell">
-                            <i class="fa fa-bell"></i>
-                        </li>
-                        <li class="card" type="cake">
-                            <i class="fa fa-birthday-cake"></i>
-                        </li>
                         <li class="card" type="bug">
                             <i class="fa fa-bug"></i>
                         </li>
                         <li class="card" type="horn">
                             <i class="fa fa-bullhorn"></i>
                         </li>
-                        <li class="card" type="apple">
-                            <i class="fa fa-apple"></i>
-                        </li>
                         <li class="card" type="calculator">
                             <i class="fa fa-calculator"></i>
-                        </li>
-                        <li class="card" type="asterisk">
-                            <i class="fa fa-asterisk"></i>
                         </li>
                     </ul>
                     <div id="popup1" class="overlay">
                         <div class="popup">
                             <h2>Congratulations 🎉</h2>
-                            <!--<a class="close" href=#>×</a>-->
+                            <a class="close">×</a>
                             <div class="content-1">
                                 Congratulations you're a winner 🎉🎉
                             </div>
@@ -528,9 +458,6 @@
                                 <p>You made <span id="finalMove"> </span> moves </p>
                                 <p>in <span id="totalTime"> </span> </p>
                                 <!-- <p>Rating:  <span id=starRating></span></p> -->
-                            </div>
-                            <div class="text-center" id="submitfinal">
-                            <button type="submit" class="btn btn-dark btn-lg mb-5 px-5" onclick="passfunction()">Submit</button>
                             </div>
                             <!--
                             <button id="play-again"onclick="playAgain()">
@@ -544,7 +471,9 @@
             <div>
                 <hr id="line1">
             </div>
-            
+            <div class="text-center" id="submitfinal">
+                <button type="submit" class="btn btn-dark btn-lg mb-5 px-5" onclick="passfunction()">Submit</button> 
+            </div>
         </div>
     </form>
 </div>

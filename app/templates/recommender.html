@@ -13,71 +13,156 @@
 <div class="R1">
 <h1>RECOMMENDER</h1>
 </div>
-<div class="R4 text-center">
-    <h3 class="pt-5">These are the recommended courses for you</h3>
-    <h4 class="py-1">Congratulations</h4>
-        <ul class="list-group list-group-horizontal-sm justify-content-center">
-            <li class="list-group-item list-group-item-primary active">{{RH[0]}}  <span class="badge badge-warning badge-pill">1</span></li>
-            <li class="list-group-item list-group-item-secondary">{{RH[1]}}  <span class="badge badge-primary badge-pill">2</span></li>
-            <li class="list-group-item">{{RH[2]}}  <span class="badge badge-success badge-pill">3</span></li>
-            <li class="list-group-item">{{RH[3]}}  <span class="badge badge-danger badge-pill">4</span></li>
-        </ul>
+<div class="R4">
+<div class="container text-center">
+    <h3 class="pt-5 lead" style="font-family:Times New Roman">Based on your skills and interests</h3>
+    <h4 class="py-1"><strong>Top Courses</strong></h4>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary active">{{FINAL[0]}}  <span class="badge badge-warning badge-pill float-right">1</span></li>
+        <li class="list-group-item list-group-item-secondary">{{FINAL[1]}}  <span class="badge badge-primary badge-pill float-right">2</span></li>
+        <li class="list-group-item">{{FINAL[2]}}  <span class="badge badge-success badge-pill float-right">3</span></li>
+        <li class="list-group-item">{{FINAL[3]}}  <span class="badge badge-danger badge-pill float-right">4</span></li>
+    </ul>
 </div>
-<div class="R3 text-center" >
-    <h3 class="pt-5">Here are our top 5 recommended Udemy courses for you</h3>
-    <div class="container-fluid pt-5">
-        <div class="card-deck" style="justify-content:center">
-            <div class="card mb-2">
-                <div class="card-header">
-                    <h6>{{session.Cdata[0]}}</h6>
-                </div>
-                <div class="card-body">
-                    <p>Course Rating : {{session.Cdata[1]}}</p>
-                    <p>Recommending Score : {{session.Cdata[2]}}</p>
-                </div>
+</div>
+<div class="R3" >
+    <h3 class="pt-5 text-center">Here are our top recommended Udemy courses for you</h3>
+    <div class="container-fluid pt-2">
+        <div class="row">
+            {% if session.CTdata %}
+            <div class="col">
+                <table class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Technical</th>
+                        <th scope="col">Courses</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {% for i in range(session["CTdata"]|length) %}
+                                <tr>
+                                <th scope="row">{{ i+1 }}</th>
+                                    {% for j in range(3) %}
+                                        <td>{{session.CTdata[i][j]}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        
+                    </tbody>
+                </table>
             </div>
-            <div class="card mb-2">
-                <div class="card-header">
-                    <h6>{{session.Cdata[3]}}</h6>
-                </div>
-                <div class="card-body">
-                    <p>Course Rating : {{session.Cdata[4]}}</p>
-                    <p>Recommending Score : {{session.Cdata[5]}}</p>
-                </div>
+            {% endif %}
+            {% if session.CMdata %}
+            <div class="col">
+                <table class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Marketing</th>
+                        <th scope="col">Courses</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {% for i in range(session["CMdata"]|length) %}
+                                <tr>
+                                <th scope="row">{{ i+1 }}</th>
+                                    {% for j in range(3) %}
+                                        <td>{{session.CMdata[i][j]}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        
+                    </tbody>
+                </table>
             </div>
-            <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-            <div class="card mb-2">
-                <div class="card-header">
-                    <h6>{{session.Cdata[6]}}</h6>
-                </div>
-                <div class="card-body">
-                    <p>Course Rating : {{session.Cdata[7]}}</p>
-                    <p>Recommending Score : {{session.Cdata[8]}}</p>
-                </div>
-            </div>
-            <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-            <div class="card mb-2">
-                <div class="card-header">
-                    <h6>{{session.Cdata[9]}}</h6>
-                </div>
-                <div class="card-body">
-                    <p>Course Rating : {{session.Cdata[10]}}</p>
-                    <p>Recommending Score : {{session.Cdata[11]}}</p>
-                </div>
-            </div>
-            <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-            <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
-            <div class="card mb-2">
-                <div class="card-header">
-                    <h6>{{session.Cdata[12]}}</h6>
-                </div>
-                <div class="card-body">
-                    <p>Course Rating : {{session.Cdata[13]}}</p>
-                    <p>Recommending Score : {{session.Cdata[14]}}</p>
-                </div>
-            </div>
+            {% endif %}
         </div>
+        <div class="row">
+            {% if session.CDdata %}
+            <div class="col">
+                <table class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Designing</th>
+                        <th scope="col">Courses</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {% for i in range(session["CDdata"]|length) %}
+                                <tr>
+                                <th scope="row">{{ i+1 }}</th>
+                                    {% for j in range(3) %}
+                                        <td>{{session.CDdata[i][j]}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        
+                </table>
+            </div>
+            {% endif %}
+            {% if session.CBdata %}
+            <div class="col">
+                <table class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                        <th scope="col">Business</th>
+                        <th scope="col">Courses</th>
+                        <th scope="col">Rating</th>
+                        <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {% for i in range(session["CBdata"]|length) %}
+                                <tr>
+                                <th scope="row">{{ i+1 }}</th>
+                                    {% for j in range(3) %}
+                                        <td>{{session.CBdata[i][j]}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>  
+        {% if session.CFdata %}
+        <div>
+            <table class="table table-bordered table-hover table-sm">
+                <thead>
+                    <tr>
+                    <th scope="col">Finance</th>
+                    <th scope="col">Courses</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        {% for i in range(session["CFdata"]|length) %}
+                            <tr>
+                            <th scope="row">{{ i+1 }}</th>
+                                {% for j in range(3) %}
+                                    <td>{{session.CFdata[i][j]}}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    
+                </tbody>  
+            </table>
+        </div>
+        {% endif %}
     </div>
 </div>
 <link rel="stylesheet" href="{{ url_for('static',filename='css/recommender.css') }}">
+<script src="{{ url_for('static',filename='js/recommender.js') }}"></script>
 {% endblock content %}
